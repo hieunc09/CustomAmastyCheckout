@@ -451,6 +451,9 @@ button.bt-login-social span span {
 #magestore-login-form{
     padding: 24px 29px;
     box-sizing: border-box;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .login-label{
@@ -474,7 +477,7 @@ button.bt-login-social span span {
 
 #magestore-popup .form-list .sociallogin-field {clear: both;margin-bottom: 5px;}
 #magestore-popup .form-list .sociallogin-field.form-group{
-    width: 48%;
+    width: 100%;
 }
 #magestore-popup .form-list .sociallogin-field.form-group.email{
     width: 100%;
