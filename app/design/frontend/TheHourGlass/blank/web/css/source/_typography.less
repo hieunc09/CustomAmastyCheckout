@@ -1,0 +1,137 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .lib-font-face(
+        @family-name: @font-family-fontawesome-name__base,
+        @font-path: '@{baseDir}fonts/fontawesome/fontawesome-webfont',
+        @font-weight: normal,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family-name__base,
+        @font-path: '@{baseDir}fonts/sourcesanspro/regular/sourcesanspro-regular',
+        @font-weight: @font-weight__regular,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family-name__base,
+        @font-path: '@{baseDir}fonts/sourcesanspro/semibold/sourcesanspro-semibold',
+        @font-weight: @font-weight__semibold,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family-name__base,
+        @font-path: '@{baseDir}fonts/sourcesanspro/bold/sourcesanspro-bold',
+        @font-weight: @font-weight__bold,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family__heading,
+        @font-path: '@{baseDir}fonts/sourceserifpro/regular/sourceserifpro-regular',
+        @font-weight: @font-weight__regular,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family__heading,
+        @font-path: '@{baseDir}fonts/sourceserifpro/semibold/sourceserifpro-semibold',
+        @font-weight: @font-weight__semibold,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family__heading,
+        @font-path: '@{baseDir}fonts/sourceserifpro/bold/sourceserifpro-bold',
+        @font-weight: @font-weight__bold,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: 'Maven Pro',
+        @font-path: '@{baseDir}fonts/maven-pro/mavenpro-medium',
+        @font-weight: @font-weight__medium,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family-name__roboto,
+        @font-path: '@{baseDir}fonts/roboto/roboto-light',
+        @font-weight: @font-weight__light,
+        @font-style: normal
+    );
+
+    .lib-font-face(
+        @family-name: @font-family-eleganticon-name__base,
+        @font-path: '@{baseDir}fonts/elegant/eleganticons',
+        @font-weight: normal,
+        @font-style: normal
+    );
+
+    h2 {
+        .lib-font-size(36);
+    }
+
+    h1, h3, h2, h4, h5, h6{
+        font-family: @font-family__headings;
+    }
+
+    b, strong {
+        font-weight: @font-weight__semibold;
+    }
+
+    .items {
+        .lib-list-reset-styles();
+    }
+
+    .page-main ul:not([class]), .page-main ol:not([class]){
+        margin: 0;
+        padding-left: 1.5rem;
+
+        li {
+            margin: 0 0 3rem;
+        }
+    }
+
+    p {
+        letter-spacing: .01em;
+        margin: 0 0 3rem;
+    }
+
+    p:empty{
+        margin: 0;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    h1 {
+        color: @color-black-light;
+        .lib-font-size(@h1__font-size);
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    h1 {
+        .lib-font-size(@h1__font-size-desktop);
+    }
+}

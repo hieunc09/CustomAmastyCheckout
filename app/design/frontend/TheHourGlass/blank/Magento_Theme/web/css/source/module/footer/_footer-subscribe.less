@@ -1,0 +1,42 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.footer-subscription-container {
+		text-align: center;
+
+		h5{
+			color: @theme__primary-color;
+			font-size: 16px;
+			font-family: @font-family__base;
+			font-weight: @font-weight__semibold;
+			margin: 10px 0;
+			letter-spacing: .16em;
+			text-transform: uppercase;
+		}
+
+		p {
+			margin: 0 0 12px;
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.footer-subscription-container {
+		text-align: center;
+
+		h5{
+			margin: 12px 0 15px;
+		}
+
+		p {
+			margin: 0 auto 22px;
+			max-width: 280px;
+		}
+	}
+}

@@ -1,0 +1,189 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.cms-no-route{
+		.page-title-wrapper {
+			display: none;
+		}
+		.breadcrumbs {
+			margin-bottom: 0;
+		}
+		.page-main {
+			position: relative;
+			text-align: center;
+			font-weight: @font-weight__light;
+			max-width: none;
+			padding: 0;
+			-webkit-flex: 0 1 auto;
+			-ms-flex: 0 1 auto;
+			flex: 0 1 auto;
+			background: @color-white-smoke;
+			z-index: 3;
+			.columns {
+				border: none;
+				padding: 30px @layout-indent__width;
+				max-width: @layout__max-width;
+				margin: 0 auto;
+			}
+		}
+
+		.column.main {
+			h2 {
+				margin: @indent__s 0;
+			}
+			a {
+				.lib-button-primary();
+				text-decoration: none;
+				text-transform: uppercase;
+				min-width: 120px;
+				padding: @indent__xs @indent__base;
+				font-weight: @font-weight__semibold;
+				border-radius: @button__border-radius;
+				letter-spacing: .16em;
+			}
+
+			p {
+				margin-bottom: @indent__base;
+			}
+
+			.text-404 {
+				margin-bottom: 2.5rem;
+			}
+		}
+	}
+	
+	.cms-service-unavailable{
+		.columns{
+			&:before{
+				display: none;
+			}
+
+			text-align: center;
+		}
+
+		.page-main{
+			max-width: none;
+			padding: 0;
+		}
+
+		.header-simple{
+			border-bottom: 1px solid #d8d8d8;
+			padding: 0 20px 20px;
+			margin: -20px;
+		}
+
+		.zopim{
+			display: none;
+		}
+
+		.column.main{
+			padding: 0 20px;
+		}
+
+		h1{
+			font-family: @font-family__headings;
+			.lib-font-size(36);
+			margin-top: 30px;
+		}
+
+		h2{
+			.lib-font-size(18);
+			margin-bottom: 0;
+
+			+ h3{
+				margin-top: 25px;
+			}
+		}
+
+		h3{
+			.lib-font-size(13);
+			margin: 10px 0;
+		}
+
+		h2, h3{
+			font-weight: @font-weight__semibold;
+		}
+
+		p{
+			margin-bottom: 0;
+
+			+ h3{
+				margin-top: 65px;
+			}
+		}
+	}
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+	.cms-no-route {
+		.page-main {
+			border-top: 1px solid @border-color__base;
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.cms-no-route {
+		.page-main {
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 100%;
+				min-width: 1920px;
+				background: url(../images/bg-404.jpg) no-repeat center 0;
+				-webkit-background-size: cover;
+				background-size: cover;
+				z-index: -1;
+			}
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'tablet') and (@break = @screen__l) {
+	.cms-no-route {
+		.page-wrapper {
+			.page-main {
+				&:before {
+					-webkit-background-size: 72%;
+					background-size: 72%;
+				}
+			}
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xxl) {
+	.cms-no-route {
+		.page-main {
+			.columns {
+				padding-top: 30px;
+				padding-bottom: 30px;
+			}
+		}
+		.column.main {
+			min-height: 400px;
+			h2 {
+				.lib-font-size(48);
+				margin: @indent__base 0;
+			}
+		}
+	}
+
+	.cms-service-unavailable{
+		h1{
+			.lib-font-size(94);
+			.lib-line-height(140);
+		}
+	}
+}

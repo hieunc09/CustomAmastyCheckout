@@ -1,0 +1,159 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.footer-links-container{
+
+        > ul {
+
+            ul {
+                background: none !important;
+                border: none;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                position: static !important;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+
+                > li {
+                    margin: 0;
+
+                    > a {
+                        display: block;
+                        text-transform: none;
+                        padding: 4px 0;
+                    }
+                }
+            }
+
+            > li {
+                display: block;
+                margin: 0;
+                position: relative;
+                padding: 5px 18px;
+                text-align: center;
+                border: none;
+
+                > a {
+                    border-color: transparent;
+                    font-size: 18px;
+                    font-weight: @font-weight__semibold;
+                    letter-spacing: .16em;
+                    line-height: 26px;
+                    padding: 5px 0;
+                    text-transform: uppercase;
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                > .icon-control {
+                    cursor: pointer;
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    right: 0;
+                    top: 7px;
+
+                    &:before {
+                        font-family: @font-family-fontawesome-name__base;
+                        display: inline-block;
+                        font-style: normal;
+                        font-weight: normal;
+                        font-variant: normal;
+                        text-transform: none;
+                        line-height: 1;
+                        content: @fontawesome__icon-arrow-down;
+                        .lib-font-size(20);
+                    }
+
+                    &.active {
+                        &:before {
+                            content: @fontawesome__icon-arrow-up;
+                        }
+                    }
+                }
+
+                > ul {
+                    display: none !important;
+
+                    > li {
+                    }
+                    ul {
+                        a {
+                            padding-left: 10px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    > ul {
+                        display: none !important;
+                    }
+                }
+
+                &.open {
+
+                    > ul {
+                        display: block !important;
+                    }
+
+                    &:hover {
+                        > ul {
+                            display: block !important;
+                        }
+                    }
+                }
+            }
+        }
+
+		ul {
+			.lib-list-reset-styles();
+
+			li {
+				margin-bottom: 0;
+			}
+		}
+
+		a {
+            background: none !important;
+			color: @theme__primary-color;
+			.lib-font-size(14);
+            line-height: 24px;
+            text-decoration: none;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .footer-links-container {
+        > ul {
+            text-align: center;
+            > li {
+                padding: 0 0 12px;
+                text-align: inherit;
+                > a {
+                    font-size: 16px;
+                    margin: 0;
+                    line-height: 18px;
+                    padding: 0;
+                }
+            }
+            ul,
+            .icon-control {
+                display: none !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,176 @@
+/*
+ * Copyright © 2016 Magestore. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+
+#magestore-popup_social .border-popup{
+    padding:0;
+}
+#magestore-popup_social ul{
+    padding: 0;
+    text-align: center;
+}
+#sociallogin_button #magestore-popup_social ul li button {
+    width: 100%;
+    height: 37px;
+}
+ul.magestore-login-social{
+    padding: 0;
+    text-align: center;
+}
+ul.magestore-login-social li {
+    border: none;
+    display: block;
+}
+#magestore-popup_social {
+    text-align: center;
+    font-size: 2.5em;
+    line-height: 1.25em;
+    margin-bottom: 0.7em;
+    position: absolute;
+    top: 200px !important;
+    z-index: 100;
+    border: 10px solid rgba(255, 255, 255, 0.58);
+    border-radius: 7px;
+}
+#other_sociallogin_label {
+    background-color: rgb(240, 240, 237);
+    line-height: 2em;
+}
+.other-button {
+    padding: 0;
+}
+.bt-login-social {
+    padding: 0;
+    margin: 0 !important;
+}
+
+.top-container {
+    width: 100%;
+}
+
+#sociallogin_button {
+    /*float: left;*/
+}
+
+#sociallogin_button ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#sociallogin_button ul li.button, .sociallogin-other ul li.button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    margin: 0 0 18px;
+}
+
+#sociallogin_button ul li.button, .sociallogin-other ul li {
+
+}
+#sociallogin_button ul li.button:hover {
+    background: none !important;
+    border: none !important;
+    list-style: none !important;
+}
+
+#sociallogin_button .bt-login-social {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.sociallogin-other-button {
+    z-index: 3000 !important;
+}
+
+#sociallogin-other-a {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+}
+
+#sociallogin-other-div {
+    display: inline-block;
+    width:100%;
+    margin: 0;
+}
+#sociallogin-other-a{
+    margin-left: -10px;
+}
+#sociallogin-other-b {
+    display: block;
+    height: 30px;
+    line-height: 30px;
+}
+
+#sociallogin-other-b span {
+    display: block;
+    margin-right: 30px;
+    text-align: right;
+}
+
+#sociallogin-other-button {
+    top: 30px;
+}
+#bg_fade {
+    z-index: 100001;
+    float: left;
+    width: 100%;
+    min-height: 3000px;
+}
+
+.active .sociallogin-other-span-img-popup {
+    float: right;
+    width: 26px;
+    height: 16px;
+    cursor: pointer;
+    background: url("sociallogin/sub.png") no-repeat right;
+}
+
+
+@media (min-width: 640px) {
+
+    #sociallogin_button ul {
+        text-align: center;
+        margin-left: -9px;
+        margin-right: -9px;
+    }
+
+    #sociallogin_button ul li.button,
+    .sociallogin-other ul li.button {
+        display: inline-block;
+        vertical-align: top;
+        padding-left: 3px;
+        padding-right: 3px;
+        width: 49%;
+        margin-right: -4px;
+    }
+}
+
+@media (min-width: 1025px) {
+
+    #sociallogin_button ul {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #sociallogin_button ul li.button,
+    .sociallogin-other ul li.button {
+        padding-left: 6px;
+        padding-right: 6px;
+        width: auto;
+        margin-right: 0;
+    }
+
+    #sociallogin_button .bt-login-social {
+        width: auto;
+        min-width: 222px;
+        text-align: left;
+        padding-right: 10px;
+    }
+}

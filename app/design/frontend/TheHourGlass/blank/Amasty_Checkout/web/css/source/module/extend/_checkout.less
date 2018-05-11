@@ -1,0 +1,255 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@checkout-wrapper__margin: @indent__base;
+@checkout-wrapper__columns: 8;
+
+@checkout-step-title__border: @border-width__base solid @color-gray80;
+@checkout-step-title__font-size: 26px;
+@checkout-step-title__font-weight: @font-weight__light;
+@checkout-step-title__padding: @indent__s;
+
+@checkout-step-title-mobile__font-size: 18px;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .checkout-index-index {
+        .page-title-wrapper {
+            &:extend(.abs-visually-hidden all);
+
+        }
+    }
+
+	.checkout-header{
+		a{
+			text-decoration: none;
+
+			&:hover{
+				text-decoration: underline;
+			}
+		}
+	}
+
+    .checkout-container {
+        &:extend(.abs-add-clearfix all);
+        .lib-css(margin, 0 0 @checkout-wrapper__margin);
+    }
+
+    .opc-wrapper {
+        .lib-css(margin, 0 0 @checkout-wrapper__margin);
+
+        .opc {
+            &:extend(.abs-reset-list all);
+        }
+
+        .step-title {
+            &:extend(.abs-checkout-title all);
+        }
+
+        .step-content {
+            margin: 0 0 @indent__xl;
+        }
+    }
+
+    .checkout-index-index {
+        .nav-sections,
+        .nav-toggle {
+            display: none;
+        }
+
+        .logo {
+            margin-left: 0;
+        }
+    }
+
+    .braintree-content {
+        p {
+            margin: 0 0 1.5rem;
+            line-height: 1.714;
+        }
+    }
+
+    .checkout-onepage-success {
+        .page-title-wrapper {
+            text-align: center;
+            border-bottom: 1px solid @border-color__base;
+            .page-title {
+                .lib-font-size(20);
+            }
+
+            .print {
+                display: none;
+            }
+        }
+    }
+
+    .checkout-success {
+        margin-bottom: 2.4rem;
+        .order-contact-info {
+            background: @theme__color-white1;
+            border-radius: 3px;
+            .lib-font-size(15);
+            padding: @indent__l;
+            h3, h4 {
+                font: @font-weight__semibold 1.8rem~"/1.334" @font-family__headings;
+                margin: 0 0 2.4rem;
+                letter-spacing: .05em;
+                text-transform: uppercase;
+            }
+            
+            h3 {
+                color: @color-black-light;
+            }
+
+            h4 {
+                font-family: @font-family__base;
+                letter-spacing: .16em;
+            }
+            
+            p {
+                color: @text__color;
+            }
+        }
+        .order-text-block {
+            margin-bottom: @indent__l;
+        }
+        .title {
+            margin: 0;
+            .lib-font-size(18);
+        }
+        p {
+            margin-bottom: 2rem;
+            color: @color-grey;
+
+            strong {
+                font-family: @font-family__base;
+                font-weight: @font-weight__semibold;
+            }
+
+            .order-number {
+                text-decoration: none;
+            }
+        }
+
+        .actions-toolbar {
+            .action.continue {
+                padding: 10px 30px;
+            }
+        }
+    }
+
+    div#registration {
+        width: auto;
+        margin-bottom: 2rem;
+        max-width: 600px;
+    }
+
+    .items-in-cart {
+        .minicart-items-content {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .checkout-success {
+        .actions-toolbar {
+            .action.continue {
+                width: 100%;
+            }
+        }
+
+        .page-title-wrapper {
+            .title {
+
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .opc-wrapper {
+        .step-title {
+            .lib-css(font-size, @checkout-step-title-mobile__font-size);
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    div#registration {
+        form {
+            position: static;
+            transform: none;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .opc-wrapper {
+        &:extend(.abs-add-box-sizing-desktop-m all);
+        .lib-layout-column(2, 1, @checkout-wrapper__columns);
+        padding-right: @indent__l;
+    }
+
+    .checkout-success {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 40px;
+        .order-contact-info {
+            flex: 1 0 445px;
+            margin-left: @indent__base;
+            max-width: 50%;
+            padding-right: 0;
+        }
+        .order-text-block {
+            flex: 1 1 auto;
+        }
+        .title {
+            .lib-font-size(20);
+        }
+
+        p {
+            max-width: 82%;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .checkout-onepage-success {
+        .page-title-wrapper {
+            padding-bottom: 15px;
+            .page-title {
+                .lib-font-size(30);
+                color: @color-item__cart;
+            }
+        }
+    }
+
+    .checkout-success {
+        .title {
+            margin-top: 0;
+            .lib-font-size(24);
+            margin-bottom: 2rem;
+        }
+    }
+}

@@ -1,267 +1,522 @@
 // /**
-//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * Copyright © 2016 Magento. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
 
+//------------------------------------------------------style guide variables --------------------------------------//
 //
-//  Luma theme overrides
-//  _____________________________________________
+//  Colors
+//  ---------------------------------------------
+@color-black: #241f20;
+@color-black-light: #55565a;
+@color-silk: #b7ada5;
+@color-grey: #666;
+@color-grey-light: #f6f9fc;
+@color-dust-storm: #E5C8C5;
+@color-maverick: #D9C7D8;
+@color-pink: @color-maverick;
+@color-putty: #E8CC8C;
+@color-surf-crest: #cce3d4;
+@color-morning-glory: #99D6E3;
+@color-viking: #6caee0;
+@color-green: #76bb43;
+@color-red: #c14040;
+@color-item__cart: @theme__primary-color;
 
-//  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
-//  Otherwise this theme won't be available for parent nesting
-//  All new variables should be placed in local theme lib or local theme files
+@theme__color-green: #323f3a;
+@theme__color-green-light: #387c2b;
+@theme__color-brown: #82785d;
+@theme__color-putty: #d4c89f;
+@theme__color-red: #c38985;
+@theme__color-red2: #c99490;
+@theme__color-white1: #f1f1f1;
+@theme__color-white2: #efede6;
+@theme__color-black: #333;
+@theme__color-gray: #999;
+
+@not-enabled-color: #e0e2e1;
+
+@error-color: @color-red;
+@warning-color: #faa227;
+@success-color__light: #9dd29c;
+@success-color__strong: #387c2b;
+
+@title-border-color: #000;
+
+@active__color: @theme__color-green-light;
+@text__color: @theme__color-green;
+
+@theme__primary-color: @theme__color-green;
+@theme__breadcrumb-caret-color: @theme__primary-color;
+
+//
+//  Icon font
+//  ----------------------------------------------
+@icons__font-name: 'icons';
+@icons__font-path: "@{baseDir}fonts/icons/icons";
+
+@australis_icons__font-name: 'australis_icons';
+@australis_icons__font-path: "@{baseDir}fonts/australis-icons/icons";
+
+@icon-edit: '\e916';
+@icon-search: '\e904';
+@icon-arrows-down: '\e909';
+@icon-arrows-right: '\e908';
+@icon-arrows-up: '\e907';
+@icon-arrows-left: '\e906';
+@icon-user: '\e903';
+@icon-bag: '\e905';
+@icon-lock: @icon-bag;
+
+@icon-facebook-bg: "\e917";
+@icon-instagram-bg: "\e918";
+@icon-youtube-bg: "\e91b";
+
+@icon-facebook: '\e900';
+@icon-instagram: '\e901';
+@icon-youtube: '\e902';
+@icon-gplus: '\f0d5';
+@icon-twitter: '\f099';
+@icon-remove: "\e90b";
+@icon-update: "\e90a";
+@icon-arrow-down: '\e90f';
+@icon-arrow-right: '\e90e';
+@icon-arrow-up: '\e90d';
+@icon-arrow-left: '\e90c';
+@icon-heart: '\e910';
+@icon-wishlist: @icon-heart;
+@icon-in-stock: '\e911';
+@icon-out-stock: '\e912';
+@icon-email: '\e913';
+@icon-star-empty: '\e9d7';
+@icon-star-half: '\e9d8';
+@icon-star-full: '\e9d9';
+@icon-star-empty-5: '\e9d7 \e9d7 \e9d7 \e9d7 \e9d7';
+@icon-reward: '\e914';
+@icon-guarantee: '\e915';
+@icon-sort-amount-asc: "\f160";
+@icon-sort-amount-desc: "\f161";
+@icon-angle-down: "\f107";
+@icon-plus-circle: '\f055';
+@icon-calendar: '\f073';
+@icon-calendar__font-size: 2.4rem;
+
+//temp icons
+@icon-pencil: "\f040";
+@icon-question-round: "\f29c";
+@icon-diamonds-rewards: "\e90e";
+@icon-checkmark: "\e923";
+
+//----------------------------------------------mage default variables---------------------------------------
+//
+//  Layout variables
+//  _____________________________________________
+//  Widths
+@layout__width: ''; // for the fixed width layout
+@layout__max-width: 1572px;
+@layout-indent__width: 12px;
+@layout__width-xs-indent: 12px;
+@layout__width-xl-indent: 15px;
+@page-main__padding-top: 22px;
 
 //
 //  Typography
 //  ---------------------------------------------
 
 //  Fonts
-@icons__font-path: '@{baseDir}fonts/Luma-Icons';
-@icons__font-name: 'luma-icons';
+@font-family-name__base: 'Source Sans Pro';
+@font-family__base: @font-family-name__base, @font-family__sans-serif;
+@font-family__heading: 'Source Serif Pro';
+@font-family__headings: @font-family__heading, @font-family__serif;
+@font-size__base: 1.4rem;
+@font-size-ratio__base: 1.3;
+@font-family-name__roboto: 'Roboto';
 
-//  Color nesting
-@panel__background-color: @color-gray-light0;
-@border-color__base: @color-gray80;
+//  Weights
+@font-weight__light: 300;
+@font-weight__regular: 400;
+@font-weight__medium: 500;
+@font-weight__semibold: 600;
+@font-weight__bold: 700;
+@font-weight__black: 900;
 
+@line-height__base: 1.5;
+
+//
+//  Fontawesome
+//  ---------------------------------------------
+
+@font-family-fontawesome-name__base: 'FontAwesome';
+@fontawesome__icon-arrow-up: '\f106';
+@fontawesome__icon-arrow-right: '\f105';
+@fontawesome__icon-arrow-down: '\f107';
+@fontawesome__icon-arrow-left: '\f104';
+@fontawesome__icon-shopping-bag: '\f290';
+@fontawesome__icon-user-circle-o: '\f2be';
+@fontawesome__icon-search: '\f002';
+@fontawesome__icon-lock: '\f023';
+
+//
+//  ElegantIcons
+//  ---------------------------------------------
+
+@font-family-eleganticon-name__base: 'ElegantIcons';
+@eleganticon__icon-minus: '\4f';
+@eleganticon__icon-plus: '\50';
+
+//
+//  ElegantIcons
+//  ---------------------------------------------
+
+@font-family-linearicons-name__base: 'Linearicons-Free';
+@linearicons__icon-minus: '\e882';
+@linearicons__icon-plus: '\e881';
+
+
+//
 //  Headings
-@h3__font-weight: @font-weight__semibold;
-@h3__margin-top: @indent__base;
-
-//
-//  Tables
 //  ---------------------------------------------
 
-@table-cell__padding-vertical: 11px;
-@table-cell-stripped__background-color: @table-cell__hover__background-color;
-@table-responsive-th__background-color: @table-cell-stripped__background-color;
-@table-responsive-cell__padding: @indent__xs @indent__s;
+@heading__font-family__base: false;
+@heading__font-weight__base: @font-weight__semibold;
+@heading__margin-top__base: 0;
+@heading__color__base: @text__color;
+@heading__line-height__base: 1.2;
+
+@h1__font-size: 30px;
+@h1__margin-top: 0;
+@h1__margin-bottom: 25;
+@h1__font-size-desktop: 48px;
+
+@h2__font-size: 36px;
+@h2__margin-top: 20;
+@h2__margin-bottom: 20;
+
+@h3__font-size: 24px;
+@h3__margin-top: 15;
+@h3__margin-bottom: 15;
+
+@h4__font-size: 18px;
+@h4__margin-top: 15;
+@h4__margin-bottom: 15;
+
+@h5__font-size: 16px;
+@h5__margin-top: 10;
+@h5__margin-bottom: 10;
+
+@h6__font-size: 12px;
+@h6__margin-top: 10;
+@h6__margin-bottom: 10;
 
 //
-//  Layout grid
+//  Borders
 //  ---------------------------------------------
 
-@total-columns: 24;
-
-//  Variables for layout columns
-@layout-column__sidebar-width: 5;
-
-//  Checkout columns width
-@layout-column-checkout__width-left: 6;
+@border-color__base: #e8e9ec;
 
 //
-//  Navigation
+//  Links
 //  ---------------------------------------------
 
-@navigation__background: @color-gray94;
-@navigation-level0-item__active__color: @primary__color;
-@submenu-item__active__color: @navigation-level0-item__active__color;
+@link__color: @color-black-light;
+@link__text-decoration: none;
 
-//  Desktop navigation
-@navigation-desktop-level0-item__line-height: 47px;
-@submenu-desktop__font-weight: @font-weight__regular;
-@submenu-desktop-item__active__color: @navigation-level0-item__active__color;
+@link__visited__color: @color-black-light;
+@link__visited__text-decoration: none;
 
-//  Tabs
-@tab-control__font-weight: @font-weight__regular;
-@tab-control__height: @indent__base*2;
-@tab-control__margin-right: -1px;
-@tab-control__padding-top: 1px;
-@tab-control__padding-right: 35px;
+@link__hover__color: @color-black-light;
+@link__hover__text-decoration: underline;
 
-//  Tabs content
-@tab-content__padding-top: 35px;
-@tab-content__padding-right: @tab-control__padding-right;
+@link__active__color: @color-black-light;
+@link__active__text-decoration: underline;
+
+@link_animation: all linear 0.3s;
 
 //
-//  Accordion
-//  ---------------------------------------------
-
-@accordion-control__font-family: false;
-@accordion-control__font-size: @font-size__base;
-@accordion-control__font-style: false;
-@accordion-control__font-weight: @font-weight__semibold;
-@accordion-control__border-right: false;
-@accordion-control__border-bottom: false;
-@accordion-control__border-left: false;
-@accordion-control__background-color: false;
-@accordion-control__color: @primary__color;
-@accordion-control__hover__background-color: false;
-@accordion-control__hover__color: @accordion-control__color;
-@accordion-control__active__background-color: false;
-@accordion-control__active__color: @accordion-control__color;
-@accordion-control__margin-bottom: 0;
-@accordion-control__padding-right: @indent__s;
-@accordion-control__padding-left: @indent__s;
-@accordion-content__border: false;
-@accordion-content__margin: 0;
-@accordion-content__padding: @indent__s @indent__s @indent__l;
+//  Buttons variables
+//  _____________________________________________
 
 //
 //  Buttons
 //  ---------------------------------------------
 
+//  Font style
+@button__font-family: @font-family__base;
+@button__font-size: 12px;
 @button__font-weight: @font-weight__semibold;
+@button__line-height: 20;
+@button__padding: 14px 20px; // is set up to false when buttons don't depend on side paddings or have fixed width
+
+//  Display settings
+@button__border-radius: 0;
+
+@button__disabled__opacity: .3;
 
 //  Default = secondary button
-@button__background: @color-gray-darken0;
-@button__border: 1px solid @border-color__base;
-@button__hover__color: @button__color;
-@button__hover__background: darken(@button__background, 5%);
-@button__active__background: @color-gray-darken1;
+@button__color: @theme__primary-color;
+@button__background: transparent;
+@button__border: 1px solid @theme__primary-color;
+
+@button__hover__color: @color-white;
+@button__hover__background: @theme__primary-color;
+@button__hover__border: 1px solid @theme__primary-color;
+
+@button__active__color: @color-white;
+@button__active__background: @theme__primary-color;
+@button__active__border: 1px solid @theme__primary-color;
 
 //  Primary button
-@button-primary__hover__color: @color-white;
-@button-primary__active__background: @link__hover__color;
-@button-primary__active__border: 1px solid @link__hover__color;
-@button-primary__active__color: @color-white;
+@button-primary__color: @color-white;
+@button-primary__background: @active__color;
+@button-primary__border: 1px solid @active__color;
 
-//  Button with icon
-@button-icon__line-height: @icon-font__line-height;
+@button-primary__hover__color: @active__color;
+@button-primary__hover__background: transparent;
+@button-primary__hover__border: 1px solid @active__color;
 
-//
-//  Icons
-//  ---------------------------------------------
+@button-primary__active__color: @button-primary__hover__color;
+@button-primary__active__background: @button-primary__hover__background;
+@button-primary__active__border: @button-primary__hover__border;
 
-@icon-wishlist-empty: false;
-@icon-comment-reflected: false;
-@icon-compare-empty: false;
-@icon-arrow-up-thin: false;
-@icon-arrow-right-thin: false;
-@icon-arrow-left-thin: false;
-@icon-arrow-down-thin: false;
-@icon-wishlist-empty: '\e601';
+//  Large button
+@button__font-size__l: 1.8rem;
+@button__line-height__l: 22;
+@button__padding__l: 19px 20px;
 
-//
-//  Messages
-//  ---------------------------------------------
+//  Small button
+@button__font-size__s: 1.2rem;
+@button__line-height__s: 20;
+@button__padding__s: 8px 15px;
 
-@message__padding: 12px @indent__base 12px @indent__m;
-@message__line-height: false;
-@message-icon__font-size: 24px;
-@message-icon__inner-padding-left: 45px;
-@message-icon__top: 22px;
-@message-error-icon: @icon-error;
-@message-success-icon: @icon-success;
+
+/// Form elements
+@focus__box-shadow: false;
 
 //
-//  Loaders
-//  ---------------------------------------------
-
-@loader-overlay__background-color: rgba(255, 255, 255, .7);
+//  Form variables
+//  _____________________________________________
 
 //
-//  Forms
+//  Form elements inputs default variables
 //  ---------------------------------------------
 
-//  Form fieldset
-@form-fieldset-legend__font-size: 18px;
-@form-fieldset-legend__font-weight: @font-weight__light;
-@form-fieldset-legend__margin: 0 0 @indent__base;
-@form-fieldset-legend__padding: 0 0 @indent__s;
-@form-fieldset-legend__width: 100%;
+@form-element-input-type: ''; // [input-text|select|textarea|input-radio|input-checkbox]
+@form-field-type-revert: block; // [inline|block|false]
+@form-element-input__background: @color-white;
+@form-element-input__border-color: #e8e9ec;
+@form-element-input__border: 1px solid @form-element-input__border-color;
+@form-element-input__border-radius: 0;
+@form-element-input__height: 50px;
+@form-element-input__width: 100%;
+@form-element-input__margin: false;
+@form-element-input__padding: 10px 15px;
+@form-element-input__vertical-align: baseline;
+@form-element-input__background-clip: border; // [border-box|content-box|padding-box]
+@form-element-input__font-size: @font-size__base;
+@form-element-input__color: #666666;
+@form-element-input__font-family: @font-family__base;
+@form-element-input__font-weight: @font-weight__regular;
+@form-element-input__font-style: false;
+@form-element-input__line-height: 1.75em;
 
-//  Form field
-@form-field-type-revert: false;
-@form-field__additional-vertical-indent: @indent__s;
+//  Placeholder
+@form-element-input-placeholder__color: #323f3a;
+@form-element-input-placeholder__font-style: @form-element-input__font-style;
+
+//  Disabled state
+@form-element-input__disabled__background: #f4f4f4;
+@form-element-input__disabled__border: 1px solid #999999;
+@form-element-input__disabled__opacity: false;
+@form-element-input__disabled__color: #ccc;
+@form-element-input__disabled__font-style: @form-element-input__font-style;
+
+//  Focus state
+@form-element-input__focus__background: @form-element-input__background;
+@form-element-input__focus__border: @form-element-input__border;
+@form-element-input__focus__color: @form-element-input__color;
+@form-element-input__focus__font-style: @form-element-input__font-style;
+
+//  Form elements choice default variables
+@form-element-choice__type: ''; // [radio|checkbox]
+@form-element-choice__vertical-align: false;
+@form-element-choice__margin: 2px @indent__xs 0 0;
+@form-element-choice__disabled__opacity: @form-element-input__disabled__opacity;
+
+@form-field-type: false;
 
 //  Form field label
+@form-field-label__font-size: 12px;
 @form-field-label__font-weight: @font-weight__semibold;
-@form-field-type-label-block__margin: 0 0 8px;
+@form-field-type-label-block__margin: 0 0 9px;
 
-//  Form field note icon
-@form-field-note-icon-font__content: false;
+//  Form field asterisk
+@form-field-label-asterisk__font-size: 16px;
+@form-field-label-asterisk__margin: 0;
+//
+//  Messages variables
+//  _____________________________________________
+
+@message__font-size: 12px;
+@message-icon__font-size: 20px;
+@message__border-width: 1px;
+@message__border-style: solid;
+@message__border-radius: 0;
+
+@message-icon__inner-padding-left: 20px;
+@message__padding: 1.5rem 2rem;
+
+//  Information message
+@message-info__color: #faa227;;
+@message-info__background: transparent;
+@message-info__border-color: @message-info__color;
+@message-info-icon: '\f06a';
+@message-info-icon__color-inner: @message-info__color;
+@message-info-icon__background: @message-info__color;
+
+//  Error message
+@message-error__color: #c14040;;
+@message-error__background: transparent;
+@message-error__border-color: @message-error__color;
+@message-error-icon: @icon-out-stock;
+@message-error-icon__color-inner: @message-error__color;
+@message-error-icon__background: @message-error__color;
+
+//  Success message
+@message-success__color: #387c2b;
+@message-success__background: transparent;
+@message-success__border-color: @message-success__color;
+@message-success-icon: '\f058';
+@message-success-icon__color-inner: @message-success__color;
+@message-success-icon__background: @message-success__color;
+
+//  Warning message
+@message-warning__color: @message-info__color;
+@message-warning__background: transparent;
+@message-warning__border-color: @message-info__border-color;
+@message-warning-icon: '\f06a';
+@message-warning-icon__color-inner: @message-info-icon__color-inner;
+@message-warning-icon__background: @message-info-icon__background;
+
+//  Notice message
+@message-notice__color: @message-info__color;
+@message-notice__background: transparent;
+@message-notice__border-color: @message-info__border-color;
+@message-notice-icon: '\f06a';
+@message-notice-icon__color-inner: @message-info__color;
+@message-notice-icon__background: @message-info-icon__background;
+
+@message-icon__font-line-height: 21px;
+//
+//  Table variables
+//  _____________________________________________
+@table__border-color: @border-color__base;
+@table-th__font-weight: @font-weight__regular;
+@table-cell__padding-vertical: 13px;
+@table-cell__padding-horizontal: 5px;
+
+// Responsive breakpoints
+@screen__xxs: 320px;
+@screen__xs: 360px;
+@screen__exs: 415px;
+@screen__s: 640px;
+@screen__special: 710px;
+@screen__m: 768px;
+@screen__l: 1025px;
+@screen__xl: 1260px;
+@screen__laptop: 1300px;
+@screen__xxl: 1400px;
+@screen__exl: 1750px;
+
+
+//  Window overlay variables
+@overlay__background: @color-black;
+@overlay__opacity: .75;
+@overlay__opacity-old: 75;
+@overlay__fade: opacity .15s linear;
+@overlay__z-index: 1000;
+
+//
+//  Rating variables
+//  _____________________________________________
+
+@rating-icon__count: 5;
+@rating-icon__content-empty: @icon-star-empty;
+@rating-icon__content: @icon-star-full;
+@rating-icon__font: @icon-font;
+@rating-icon__font-size: 15px;
+@rating-icon__letter-spacing: 2px;
+@rating-icon__color: #387c2b;
+
+@rating-icon__active__color: #387c2b;
+
+@rating-label__hide: false;
+
+
+@qty-select-border-color: @color-silk;
+
+//
+//  Theme z-indexes
+//  _____________________________________________
+
+@z-index-header: 20;
+@z-index-min: 1;
+@z-index-max: 10000001;
+@z-index-max-under: 10000000;
 
 //
 //  Pager
-//  ---------------------------------------------
+//  _____________________________________________
 
-@pager__font-weight: @font-weight__regular;
-@pager__line-height: @indent__l;
-@pager-item__margin: 0 8px 0 0;
-@pager-item__padding: 0 @indent__xs;
-
-//  Pager current page
-@pager-current__background: @color-gray90;
-
-//  Pager link.action
-@pager-icon__font-margin: 0;
-@pager-icon__font-size: 16px;
-
-//  Pager link.action visited
-@pager-action__visited__color: @text__color__muted;
-
-//  Pager link.action hover
-@pager-action__hover__color: @text__color__muted;
-
-//  Pager link.action active
-@pager-action__active__color: @text__color__muted;
+@pager-icon__text-hide: false;
 
 //
-//  Rating
+//  Mobile navigation
 //  ---------------------------------------------
 
-@rating-icon__font-size: 16px;
-@rating-icon__letter-spacing: 2px;
-@rating-icon__active__color: @active__color;
+@navigation-level0-item__font-size: 16;
+@navigation-level0-item__font-weight: @font-weight__semibold;
+@navigation-level0-item__text-transform: uppercase;
+
+@navigation-level0-item__border: 1px solid transparent;
+@navigation-level0-item__color: #656b35;
+@navigation-level0-item__text-decoration: none;
+@navigation-level0-item__active__border-color: transparent;
+@navigation-level0-item__active__color: #656b35;
+@navigation-level0-item__active__text-decoration: underline;
+
+@submenu__font-weight: @font-weight__regular;
+
+@submenu-item__color: #241f20;
+@submenu-item__text-decoration: @navigation-level0-item__text-decoration;
+
+@submenu-item__active__border-color: transparent;
+@submenu-item__active__color: #656b35;
+@submenu-item__active__text-decoration: @navigation-level0-item__active__text-decoration;
 
 //
-//  Dropdowns
+//  Desktop navigation
 //  ---------------------------------------------
 
-@dropdown-toggle-icon__content: @icon-down;
-@dropdown-toggle-icon__active__content: @icon-up;
-@dropdown-toggle-icon__font-size: 12px;
+@navigation-desktop__font-weight: @font-weight__semibold;
+@navigation-desktop__font-size: 16px;
 
-//  Split dropdown
-@dropdown-split-actions__padding: 0 @indent__xs;
-@dropdown-split-toggle__actions__padding: false;
+@navigation-desktop-level0-item__color: #656b35;
+@navigation-desktop-level0-item__text-decoration: none;
 
-//  Actions-toolbar
-@actions-toolbar-actions__position: left;
-@actions-toolbar-actions-primary__margin: 0 15px 0 0;
+@navigation-desktop-level0-item__hover__color: #656b35;
+@navigation-desktop-level0-item__hover__text-decoration: underline;
 
-//
-//  Breadcrumbs
-//  ---------------------------------------------
+@navigation-desktop-level0-item__active__border-color: transparent;
+@navigation-desktop-level0-item__active__color: @navigation-desktop-level0-item__hover__color;
+@navigation-desktop-level0-item__active__text-decoration: @navigation-desktop-level0-item__hover__text-decoration;
 
-@breadcrumbs__container-margin: 0 0 15px;
-@breadcrumbs-icon__font-size: 10px;
-@breadcrumbs-icon__font-margin: 0 @indent__s;
+@submenu-desktop__font-weight: @font-weight__regular;
+@submenu-desktop__font-size: 15px;
+@submenu-desktop-item__color: #241f20;
+@submenu-desktop-item__text-decoration: none;
 
-//
-//  Popups
-//  ---------------------------------------------
+@submenu-desktop-item__hover__background: '';
+@submenu-desktop-item__hover__color: @navigation-desktop-level0-item__hover__color;
+@submenu-desktop-item__hover__text-decoration: @navigation-desktop-level0-item__hover__text-decoration;
 
-@popup__border: 1px solid @color-gray68;
-@popup-title-headings__level: h2;
-
-//  Popup icons
-@popup-icon-font__size: 16px;
-@popup-icon-font__line-height: 16px;
-@popup-icon-font__color: @color-gray55;
-@popup-icon-font__color-hover: darken(@popup-icon-font__color, 10%);
-@popup-icon-font__color-active: @popup-icon-font__color-hover;
-
-//  Window overlay
-@overlay__background: @color-gray55;
-@overlay__opacity: .7;
-@overlay__opacity-old: 70;
-
-@gallery-thumb-border-color-active: @active__color;
-
-//  Checkout tooltip icon
-@checkout-tooltip-icon__font-size: 21px;
-
-//  Checkout Payment Option icon
-@checkout-payment-option-title-icon__font-size: 14px;
-@checkout-payment-option-title-icon__line-height: 16px;
-@checkout-payment-option-title-icon__margin: 0 0 0 @indent__s;
-
-//  Checkout Sidebar Shipping Information
-@checkout-sidebar-shipping-information-edit-icon__content: @icon-edit;
-@checkout-sidebar-shipping-information-edit-icon__font-size: 18px;
-@checkout-sidebar-shipping-information-edit-icon__line-height: 20px;
-@checkout-sidebar-shipping-information-edit-icon__top: @indent__s;
-
-//  Checkout
-@checkout-sidebar__columns: 8;
+@submenu-desktop-item__active__border-color: transparent;

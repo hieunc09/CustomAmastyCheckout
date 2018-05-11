@@ -1,0 +1,57 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.magestore-pop-content {
+		label.required {
+			&:after {
+				content: '*';
+				display: inline-block;
+				margin: 0;
+				.lib-typography(
+					@_font-size: @form-field-label-asterisk__font-size,
+					@_color: @form-field-label-asterisk__color,
+					@_font-family: @form-field-label-asterisk__font-family,
+					@_font-weight: @form-field-label-asterisk__font-weight,
+					@_line-height: @form-field-label-asterisk__line-height,
+					@_font-style: @form-field-label-asterisk__font-style
+				);
+				.lib-css(margin, @form-field-label-asterisk__margin);
+			}
+		}
+	}
+}
+
+//
+// Mobile
+//________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	body.social-login-active {
+		position: fixed;
+
+		input[type="text"],
+		input[type="password"],
+		input[type="url"],
+		input[type="tel"],
+		input[type="search"],
+		input[type="number"],
+		input[type="datetime"],
+		input[type="email"] {
+			cursor: pointer;
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+	div#magestore-popup .form-list{
+		.two-in-line{
+			display: block;
+		}
+
+		.sociallogin-field.form-group{
+			width: 100%;
+		}
+	}
+}

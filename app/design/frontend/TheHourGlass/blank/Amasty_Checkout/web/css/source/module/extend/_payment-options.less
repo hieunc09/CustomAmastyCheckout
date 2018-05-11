@@ -1,0 +1,290 @@
+// /**
+//  * Copyright © 2016 Magento. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@checkout-payment-option-title__border: @checkout-payment-method-title__border;
+@checkout-payment-option-title__color: @link__color;
+@checkout-payment-option-title__padding: @checkout-payment-method-title__padding;
+@checkout-payment-option-title-mobile__padding: @checkout-payment-method-title-mobile__padding;
+
+@checkout-payment-option-title-icon__font-size: 32px;
+@checkout-payment-option-title-icon__line-height: 16px;
+@checkout-payment-option-title-icon__margin: 0;
+@checkout-payment-option-title-icon__color: @minicart-icons-color;
+@checkout-payment-option-title-icon__hover__color: @primary__color;
+
+@checkout-payment-option-content__padding__xl: @checkout-payment-method-content__padding__xl;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .checkout-payment-method {
+        .payment-option {
+            &._active {
+                &._collapsible {
+                    .payment-option-title {
+                        &:after {
+                            content: '-';
+                        }
+                    }
+                }
+            }
+
+            &._collapsible {
+                .payment-option-title {
+                    cursor: pointer;
+                    .lib-font-size(16);
+                    color: @color-item__cart;
+                    font-family: @font-family__headings;
+                    font-weight: @heading__font-weight__base;
+                    padding: 3rem 2px 3rem 0;
+                    position: relative;
+
+                    &:after {
+                        color: @color-item__cart;
+                        position: absolute;
+                        right: 5px;
+                        top: 25px;
+                        content: '+';
+                        border-radius: 50%;
+                        border: 1px solid @color-item__cart;
+                        .lib-font-size(17);
+                        font-family: 'Maven Pro';
+                        line-height: 13px;
+                        width: 15px;
+                        height: 15px;
+                        margin-right: 20px;
+                        text-align: center;
+                    }
+
+                    .action-toggle {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+
+                .payment-option-content {
+                    display: none;
+                }
+            }
+
+            &.rewardpoints {
+                display: inline-block;
+                text-align: left;
+
+                .payment-option-title {
+                    padding-left: 0;
+                    color: @color-item__cart;
+                    font-family: @font-family__headings;
+                    font-weight: @heading__font-weight__base;
+                    letter-spacing: 0.05em;
+                    text-transform: uppercase;
+                }
+
+                .actions-toolbar {
+                    padding: 0;
+                    .primary {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .payment-option-title {
+            .lib-css(border-top, @checkout-payment-option-title__border);
+            .lib-css(padding, @checkout-payment-option-title__padding 0);
+
+            .action-toggle {
+                .lib-css(color, @checkout-payment-option-title__color);
+                .lib-icon-font(
+                    @icon-down,
+                    @_icon-font-size: @checkout-payment-option-title-icon__font-size,
+                    @_icon-font-line-height: @checkout-payment-option-title-icon__line-height,
+                    @_icon-font-color: @checkout-payment-option-title-icon__color,
+                    @_icon-font-color-hover: @checkout-payment-option-title-icon__hover__color,
+                    @_icon-font-color-active: @checkout-payment-option-title-icon__color,
+                    @_icon-font-margin: @checkout-payment-option-title-icon__margin,
+                    @_icon-font-position: after
+                );
+            }
+        }
+
+        .payment-option-content {
+            .lib-css(padding, 0);
+        }
+
+        .payment-option-inner {
+            margin: 0 0 @indent__base;
+        }
+
+        .credit-card-types {
+            padding: 0;
+
+            .item {
+                display: inline-block;
+                line-height: 1.714;
+                list-style: none;
+                margin: 0 @indent__xs 0 0;
+                vertical-align: top;
+
+                &._active {
+                    font-weight: @font-weight__semibold;
+
+                }
+
+                &._inactive {
+                    opacity: .4;
+                }
+
+                span {
+                    display: inline-block;
+                    padding-top: 6px;
+                    vertical-align: top;
+                }
+
+                img {
+                    vertical-align: middle;
+                }
+            }
+
+        }
+
+        .ccard {
+            .legend {
+                &:extend(.abs-visually-hidden all);
+            }
+
+            .fields {
+                > .year {
+                    padding-left: @indent__xs;
+                }
+
+                .select {
+                    padding-left: @indent__xs;
+                    padding-right: @indent__xs;
+                }
+            }
+
+            .month {
+                .select {
+                    width: 140px;
+                }
+            }
+
+            .year {
+                .select {
+                    width: 80px;
+                }
+            }
+
+            .number {
+                .input-text {
+                    width: 225px;
+                }
+            }
+
+            > .field.cvv {
+                > .control {
+                    padding-right: @indent__base;
+                    width: auto;
+                }
+            }
+
+            .cvv {
+                .input-text {
+                    width: 55px;
+                }
+            }
+
+            &.fieldset {
+                > .field {
+                    .fields.group.group-2 {
+                        .field {
+                            width: auto !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@-moz-document url-prefix() {
+    .checkout-payment-method .payment-option._collapsible .payment-option-title:after {
+        line-height: 12px;
+        text-indent: 2px;
+    }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .checkout-payment-method .payment-option._collapsible .payment-option-title:after {
+        text-indent: 1.75px;
+        line-height: 12px;
+    }
+}
+@supports (-ms-accelerator:true) {
+    .checkout-payment-method .payment-option._collapsible .payment-option-title:after {
+        text-indent: 1.75px;
+        line-height: 12px;
+    }
+}
+
+
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .checkout-payment-method {
+        .payment-option {
+
+            .payment-option-title {
+                .lib-css(padding, @checkout-payment-option-title-mobile__padding)
+            }
+
+            .payment-option-content {
+                .lib-css(padding, 0 0 @indent__base);
+
+                .payment-option-inner {
+                    margin: 0 0 1rem;
+                }
+
+                .price {
+                    font-weight: @font-weight__semibold;
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .checkout-payment-method {
+        .payment-option-title {
+            .lib-css(padding-left, @checkout-payment-option-content__padding__xl);
+        }
+        .payment-option-content {
+            .payment-option-inner {
+                + .actions-toolbar {
+                    display: inline-block;
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding-top: 0;
+                    font-weight: @font-weight__semibold;
+                    width: 100%;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

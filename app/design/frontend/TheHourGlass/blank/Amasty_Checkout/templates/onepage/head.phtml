@@ -12,30 +12,35 @@
     .fieldset.address [name$=".<?=$code?>"] {
         width: <?= $width ?>%;
     }
+
     <?php endforeach; ?>
 
     <?php if ($font = $block->getCustomFont()): ?>
     body {
         font-family: '<?= $font ?>', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
     }
+
     <?php endif ?>
 
     <?php if ($color = $block->getHeadingTextColor()): ?>
     .step-title {
         color: <?= $color ?> !important;
     }
+
     <?php endif ?>
 
     <?php if ($color = $block->getBackgroundColor()): ?>
     #checkout {
         background: <?= $color ?> !important;
     }
+
     <?php endif ?>
 
     <?php if ($color = $block->getSummaryBackgroundColor()): ?>
     .opc-block-summary {
         background-color: <?= $color ?> !important;
     }
+
     <?php endif ?>
 
     <?php if ($color = $block->getButtonColor()): ?>
@@ -43,58 +48,12 @@
         background-color: <?= $color['normal'] ?> !important;
         border: none !important;
     }
+
     .action.primary:hover {
         background-color: <?= $color['hover'] ?> !important;
         border: none !important;
     }
+
     <?php endif ?>
 
 </style>
-
-<script>
-require([
-  'jquery',
-  'jquery/ui',
-  'domReady!'
-], function($){
-
-
-var checkExist = setInterval(function() {
-   if (jQuery(jQuery('.checkout-column')[2]).length) {
-         setTimeout(function(){
-
-		jQuery('<div class="field" name="shippingAddress.salutation"><label class="label" for="salutation"> <span data-bind="i18n: element.label">Salutation</span> </label><select class="select" name="salutation" id="TJB0SK6"><option value="mr">Mr</option><option value="ms">Ms</option><option value="Mrs">Mrs</option><option value="dr">Dr</option><option value="prof">Prof</option></select></div>').insertBefore(jQuery("[name='shippingAddress.firstname']"))
-		$('#block-discount-heading span').text('Apply Membership');
-                $('#discount-code').attr("placeholder", "Enter here");
-                jQuery('#discount-form button').text('Apply Membership');
-                jQuery("[name='shippingAddress.company']").css('display', 'none')
-                jQuery("[name='shippingAddress.country_id']").detach().insertBefore("[name='shippingAddress.company']")
-        	jQuery('.grand .mark strong').text('Grand Total');
-		jQuery(jQuery('.checkout-block .discount-code')[1]).after('<div class="admin__field admin__field-option so-policy" style="margin-bottom:15px"><input type="checkbox" class="admin__control-checkbox" data-bind="" id="policy" name="register" value="1"><label class="admin__field-label" for="policy">I agree to The Hour Glass Privacy Policy.</label></div>')
-
-		$($('.checkout-payment-method button.primary.checkout')[1]).attr('disabled',false);
-		$('#policy').click(function(){
-                        if($('#policy').is(':checked')){
-                                $($('.checkout-payment-method button.primary.checkout')[1]).attr('disabled',false);
-                        }else{
-                                $($('.checkout-payment-method button.primary.checkout')[1]).attr('disabled',true)
-                        }
-                 });
-
-		jQuery(jQuery('.admin__field-option')[0]).detach().insertBefore('.so-policy')
-
-		jQuery("[name='shippingAddress.telephone']").append('<span>We will be in touch only for customer service matters specific to this transaction.</span>')
-
-	}, 5000);
-clearInterval(checkExist);
-   }
-}, 100);
-
-// Code from here
- // End code
-
-});
-
-
-
-</script>

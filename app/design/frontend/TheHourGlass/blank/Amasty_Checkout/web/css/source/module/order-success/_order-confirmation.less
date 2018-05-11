@@ -1,0 +1,100 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .checkout-success {
+        .delivery {
+            font-weight: 600;
+            float: right;
+        }
+
+        .delivery-field {
+            float: left;
+            margin-left: 12px;
+        }
+
+        .order-details-items {
+            margin-bottom: 0;
+        }
+
+        .block-order-details-view:nth-child(2) .block-title {
+            display: none;
+        }
+
+        .order-date {
+            .lib-font-size(16);
+            border-bottom: 1px solid #c6c6c6;
+            padding-bottom: 25px;
+        }
+
+        .order-confirmation-container {
+            .lib-font-size(13);
+            float: left;
+            width: 66%;
+
+            &:after {
+                display: block;
+                clear: both;
+                content: '';
+            }
+        }
+
+        .success-messages {
+            .lib-font-size(15);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .success-messages strong,
+        .success-messages b {
+            font-weight: 500;
+        }
+
+        .block.block-order-details {
+            margin-bottom: 25px;
+        }
+
+        .block.block-order-details-comments {
+            margin-bottom: 35px;
+        }
+
+        .block.block-order-details-view {
+            margin-bottom: 10px;
+        }
+
+        #registration {
+            width: 600px;
+            position: relative;
+            border-left: 3px solid #f58c12;
+            padding: 0 0 0 12px;
+            margin: 20px 0 25px;
+
+            br {
+                display: none;
+            }
+
+            form {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+
+    .order-confirmation-container {
+        width: 100%;
+        float: none;
+    }
+
+    .checkout-success .title {
+        .lib-font-size(18);
+        margin: 20px 0;
+    }
+
+}

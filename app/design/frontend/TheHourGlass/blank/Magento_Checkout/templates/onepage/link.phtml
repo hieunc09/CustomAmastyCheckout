@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+$helper = $this->helper('Magento\Checkout\Helper\Data');
+$subTotal  = $helper->getQuote()->getSubtotal();
+?>
+<?php if ($block->isPossibleOnepageCheckout()):?>
+	<div class="button-cart-checkout">
+		<div class="button-cart-holder">
+			<div class="total-price-fixed">
+                <div><span><?php echo __('Total:')?></span></div>
+			    <strong><?php echo $helper->formatPrice($subTotal)?></strong>
+			</div>
+			<button type="button"
+			        data-role="proceed-to-checkout"
+			        title="<?php /* @escapeNotVerified */ echo __('Proceed to Checkout') ?>"
+			        data-mage-init='{"Magento_Checkout/js/proceed-to-checkout":{"checkoutUrl":"<?php /* @escapeNotVerified */ echo $block->getCheckoutUrl(); ?>"}}'
+			        class="action primary checkout<?php echo($block->isDisabled()) ? ' disabled' : ''; ?>"
+			        <?php if ($block->isDisabled()):?>disabled="disabled"<?php endif; ?>>
+			    <span><?php /* @escapeNotVerified */ echo __('Checkout Securely') ?></span>
+			</button>
+		</div>
+	</div>
+	<script type="text/x-magento-init">
+	        {
+	            "#cart-fixed-totals": {
+	                "Magento_Ui/js/core/app": <?php /* @escapeNotVerified */ echo $block->getJsLayout();?>
+	            }
+	        }
+	</script>
+<?php endif?>

@@ -1,7 +1,80 @@
 // /**
-//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * Copyright © 2016 Magento. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
+
+.lib-button-with-icon(
+    @_button-color,
+    @_button-padding,
+    @_button-margin,
+    @_button-border,
+    @_button-background,
+    @_button-figure-size,
+    @_button-figure-radius,
+    @_button-figure-margin,
+    @_button-figure-border,
+    @_button-icon-content,
+    @_button-icon-font-size,
+    @_button-icon-color-hover
+)  {
+    .lib-css(color, @_button-color);
+    .lib-css(padding, @_button-padding);
+    .lib-css(margin, @_button-margin);
+    .lib-css(border, @_button-border);
+    .lib-css(background, @_button-background);
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    .lib-icon-font(
+        @_button-icon-content,
+        @_icon-font-line-height: @_button-figure-size,
+        @_icon-font-size: @_button-icon-font-size,
+        @_icon-font-color: @_button-color,
+        @_icon-font-color-hover: @_button-icon-color-hover,
+        @_icon-font-position: before
+    );
+
+    &:before{
+        position: absolute;
+        z-index: 2;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 0;
+        .lib-css(width, @_button-figure-size);
+        .lib-css(height, @_button-figure-size);
+        .lib-css(border-radius, @_button-figure-radius);
+        .lib-css(margin, @_button-figure-margin);
+        .lib-css(border, @_button-figure-border);
+        transform: rotate(45deg);
+        transition: all linear 0.3s;
+    }
+
+    &:hover {
+        .lib-css(color, @_button-color);
+
+        &:after {
+            .lib-css(background, @color-black-light);
+        }
+    }
+
+    &:active {
+        .lib-css(color, @_button-color);
+
+        &:after {
+            .lib-css(background, @color-black-light);
+        }
+    }
+}
 
 //
 //  Common
@@ -9,37 +82,46 @@
 
 & when (@media-common = true) {
 
-    //  Using buttons mixins
-    button,
-    a.action.primary {
-        .lib-css(border-radius, @button__border-radius);
-    }
+	a.action.primary,
+	a.button {
+		.lib-link-as-button();
 
-    button {
-        &:not(.primary) {
-            .lib-css(box-shadow, @button__shadow);
+	}
 
-            &:active {
-                .lib-css(box-shadow, @button__shadow-active);
-            }
-        }
-    }
+	a.button {
+		.lib-button();
 
-    body {
-        &:not(._keyfocus) {
-            button {
-                &:focus {
-                    box-shadow: none;
-                }
-            }
-        }
-    }
+		&::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}
+	}
 
-    a.action.primary {
-        .lib-link-as-button();
-    }
+	.action.primary {
+		.lib-button-primary();
+		text-transform: uppercase;
+        text-align: center;
+	}
 
-    .action.primary {
-        .lib-button-primary();
-    }
+	.action.primary,
+	.button,
+	button, a {
+		transition: @link_animation;
+        &:hover {
+		}
+	}
+
+	.action.primary,
+	.button, button{
+		text-transform: uppercase;
+        letter-spacing: .16em;
+
+		&.button-large{
+			.lib-button-l();
+		}
+
+		&.button-small{
+			.lib-button-s();
+		}
+	}
 }

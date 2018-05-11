@@ -1,5 +1,5 @@
 // /**
-//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * Copyright © 2016 Magento. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
 
@@ -7,118 +7,144 @@
 //  Variables
 //  _____________________________________________
 
-@legend-border-bottom: 1px solid @color-gray-light6;
-@form-field__vertical-indent__desktop: 29px;
+@form-field__vertical-indent__desktop: 18px;
 @form-calendar-icon__color: @primary__color;
+
+@choices-size: 30px;
+
 
 //
 //  Common
 //  _____________________________________________
 
 & when (@media-common = true) {
+    /* Remove controls from Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+    
+    input::-webkit-contacts-auto-fill-button {
+        visibility: hidden;
+    }
+
+    .fieldset > .field.required > .label::after,
+    .fieldset > .fields > .field.required > .label::after,
+    .fieldset > .field._required > .label::after,
+    .fieldset > .fields > .field._required > .label::after {
+        .lib-font-size(16) !important;
+    }
+
     .fieldset {
         .lib-form-fieldset();
-
+        min-width: 0;
+        width: 100%;
         &:last-child {
             margin-bottom: 0;
         }
-
+        
         > .field,
         > .fields > .field {
             .lib-form-field();
+            margin: 0 0 16px;
+            
             &.no-label {
                 > .label {
-                    .lib-visually-hidden();
+                    &:extend(.abs-visually-hidden all);
                 }
             }
-
+            
             &.choice {
+                
                 .label {
-                    display: inline;
-                    font-weight: normal;
+                    display: inline-block;
+                    vertical-align: middle;
                     margin: 0;
+                    letter-spacing: .01em;
+                    line-height: 1.154;
+                    font-weight: normal;
+                    text-transform: none;
+                    font-family: inherit;
+                    font-size: inherit;
+                }
+                
+                input[type="checkbox"],
+                input[type="radio"] {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 6px 0 0;
                 }
             }
-
+            
             .label {
+                letter-spacing: .16em;
+                text-transform: uppercase;
                 .column:not(.main) & {
                     font-weight: normal;
                 }
             }
-
+            
             .field.choice {
                 margin-bottom: @indent__s;
-
+                
                 &:last-child {
                     margin-bottom: 0;
                 }
             }
+            
+            input[type=file] {
+                margin: @indent__xs 0;
+            }
         }
     }
-
+    
     .legend + .fieldset,
     .legend + div {
         clear: both;
     }
-
+    
     .legend {
-        > span {
-            margin-right: @indent__xs;
+        strong {
+            margin-left: @indent__xs;
         }
     }
-
+    
     fieldset.field {
         border: 0;
         padding: 0;
     }
-
+    
     .field {
         &.date {
+            &:extend(.abs-field-date all);
+            
             .time-picker {
                 display: inline-block;
                 margin-top: @indent__s;
                 white-space: nowrap;
             }
         }
-
+        
         .message {
             &.warning {
                 margin-top: @indent__s;
             }
         }
     }
-
-    .select-styling() {
-        .lib-css(appearance, none, 1);
-        appearance: none;
-        background: @select__background url('../images/select-bg.svg') no-repeat 100% 45%;
-        background-size: 30px 60px;
-        border: 1px solid @border-color__base;
-        height: 32px;
-        padding-right: 25px;
-        text-indent: .01em;
-        text-overflow: '';
-
-        &::-ms-expand {
-            display: none;
-        }
-
-        .lt-ie10 & {
-            background-image: none;
-            padding-right: 4px;
-        }
-    }
-
-    select {
-        .select-styling();
-    }
-
+    
     div.mage-error[generated] {
+        .lib-font-size(15);
         margin-top: 7px;
+        .lib-font-size(15);
     }
-
-    //  TEMP
-
+    
     .field .tooltip {
         .lib-tooltip(right);
         .tooltip-content {
@@ -126,67 +152,154 @@
             white-space: normal;
         }
     }
-
+    
     input:focus ~ .tooltip .tooltip-content,
     select:focus ~ .tooltip .tooltip-content {
         display: block;
     }
-
+    
     ._has-datepicker {
         ~ .ui-datepicker-trigger {
             .lib-button-reset();
             .lib-icon-font(
-            @_icon-font-content: @icon-calendar,
-            @_icon-font-color: @primary__color__lighter,
-            @_icon-font-size: @icon-calendar__font-size,
-            @_icon-font-line-height: @icon-calendar__font-size,
-            @_icon-font-display: block,
-            @_icon-font-text-hide: true
+                @_icon-font-content: @icon-calendar,
+                @_icon-font: @font-family-fontawesome-name__base,
+                @_icon-font-color: @primary__color__lighter,
+                @_icon-font-size: @icon-calendar__font-size,
+                @_icon-font-line-height: @icon-calendar__font-size,
+                @_icon-font-display: block,
+                @_icon-font-text-hide: true
             );
             display: inline-block;
-            margin-top: -4px;
             vertical-align: middle;
-
+            
             &:focus {
                 box-shadow: none;
                 outline: 0;
             }
         }
     }
-
-    .field.date,
-    .field-dob {
-        ._has-datepicker {
-            &:extend(.abs-field-date-input all);
-        }
-    }
-
+    
     //
     //  Sidebar forms
-    //  ---------------------------------------------
-
+    //  -----------------------------------------
+    
     .sidebar {
         .fieldset {
             margin: 0;
-
+            
             > .field:not(.choice) >,
             .fields > .field {
                 &:not(:last-child) {
                     margin: 0 0 @form-field__vertical-indent;
                 }
-
+                
                 .label {
                     margin: 0 0 4px;
                     padding: 0 0 @indent__xs;
                     text-align: left;
                     width: 100%;
                 }
-
+                
                 .control {
                     width: 100%;
                 }
             }
         }
+    }
+    
+    .input-text.qty {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    .field {
+        
+        select + .input-text {
+            margin-top: 14px;
+        }
+        
+        /* remove for displaying asterisk
+        .label{
+            &:after{
+                display: none;
+            }
+        }
+        */
+    }
+    
+    .form.subscribe {
+        position: relative;
+    }
+
+    .control{
+        position: relative;
+    }
+    
+    // checkbox common styles
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        position: absolute;
+        left: -9999px;
+    }
+    [type="checkbox"]:not(:checked) + label,
+    [type="checkbox"]:checked + label {
+        position: relative;
+        padding-left: 40px;
+        cursor: pointer;
+        
+        span{
+            line-height: 30px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    
+    /* checkbox aspect */
+    [type="checkbox"]:not(:checked) + label:before,
+    [type="checkbox"]:checked + label:before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0;
+        width: 30px;
+        height: 30px;
+        border: 1px solid @form-element-input__border-color;
+        background: #fff;
+    }
+    /* checked mark aspect */
+    [type="checkbox"]:not(:checked) + label:after,
+    [type="checkbox"]:checked + label:after {
+        content: '';
+        position:absolute;
+        height: 9px;
+        width: 18px;
+        top: 8px;
+        left: 6px;
+        border: 3px solid #5a5b5f;
+        border-width:0 0 3px 3px;
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    /* checked mark aspect changes */
+    [type="checkbox"]:not(:checked) + label:after {
+        display: none;
+    }
+    [type="checkbox"]:checked + label:after {
+        display: block;
+    }
+    /* disabled checkbox */
+    [type="checkbox"]:disabled:not(:checked) + label:before,
+    [type="checkbox"]:disabled:checked + label:before {
+        border-color: #bbb;
+        background-color: #ddd;
+    }
+    [type="checkbox"]:disabled:checked + label:after {
+        color: #999;
+    }
+    [type="checkbox"]:disabled + label {
+        color: #aaa;
     }
 }
 
@@ -195,7 +308,14 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-    .legend {
-        .lib-css(border-bottom, @legend-border-bottom);
+    .fieldset {
+        .legend {
+            // &:extend(.abs-margin-for-forms-desktop all);
+        }
+        
+        > .field {
+            .lib-form-field-type-revert();
+            margin: 0 0 @form-field__vertical-indent__desktop;
+        }
     }
 }

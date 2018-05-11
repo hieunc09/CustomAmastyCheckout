@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © Magento, Inc. All rights reserved.
+ * Copyright © 2017 Balance Internet Pty., Ltd. All rights reserved.
  * See COPYING.txt for license details.
  */
 

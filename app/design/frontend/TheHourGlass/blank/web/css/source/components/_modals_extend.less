@@ -14,19 +14,23 @@
 @modal-title__color: @text__color;
 @modal-title__border: 1px solid @color-gray-light5;
 
-@modal-popup-title__font-size: 26px;
+@modal-popup__close-line-height: 2rem;
+@modal-popup__close-icon-size: 15px;
+
+@modal-popup-title__font-size: @h3__font-size;
 @modal-popup-title-mobile__font-size: @font-size__base;
-@modal-popup-breakpoint-screen__m: @screen__m;
+@modal-popup-breakpoint-screen__m: @screen__m + 1;
 
 @modal-slide__first__indent-left: 44px;
 @modal-slide-mobile__background-color: @color-gray-light01;
 @modal-overlay__background-color: fade(@color-gray20, 55%);
 
-@modal-action-close__color: @primary__color;
-@modal-action-close__font-size: @font-size__base;
-@modal-action-close__hover__color: darken(@primary__color, 10%);
-
-@modal-slide-action-close__padding: @modal-slide-header__padding-vertical @modal-popup__padding;
+@modal-action-close__color: @color-white;
+@modal-action-close__font-size: 1.2rem;
+@modal-action-close__hover__color: @color-white;
+@modal-slide-action-close__padding: 0;
+@modal-action-close__line-height: 2rem;
+@modal-action-close__icon-size: 15px;
 
 //
 //  Common
@@ -36,25 +40,58 @@
     .modal-custom,
     .modal-popup,
     .modal-slide {
+        text-align: center;
+
         .action-close {
             .lib-button-reset();
             .lib-button-icon(
-                @icon-remove,
-                @_icon-font-color: @minicart-icons-color,
-                @_icon-font-size: @modal-action-close__font-size,
-                @_icon-font-line-height: @modal-action-close__font-size,
-                @_icon-font-text-hide: true
+                    @icon-remove,
+                @_icon-font-color: @modal-action-close__color,
+                @_icon-font-size: @modal-action-close__icon-size,
+                @_icon-font-line-height: @modal-action-close__line-height,
+                @_icon-font-text-hide: false,
+                @_icon-font-color-hover: @modal-action-close__hover__color,
+                @_icon-font-color-active: @modal-action-close__hover__color,
+                @_icon-font-margin: 0 0 0 5px,
+                @_icon-font-position: after,
+                @_icon-font-vertical-align: middle
             );
+
             position: absolute;
             right: 0;
-            top: 0;
+            top: -37px;
+            color: @modal-action-close__color;
 
-            &:hover {
-                &:before {
+            span{
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            &:after{
+                width: @modal-action-close__icon-size + 1;
+                height: @modal-action-close__icon-size + 1;
+                line-height: @modal-action-close__icon-size;
+                border: 1px solid @modal-action-close__color;
+                border-radius: 50%;
+            }
+
+            &:hover,
+            &:active {
+                color: @modal-action-close__hover__color;
+
+                span{
+                    text-decoration: underline;
+                }
+
+                &:after {
                     color: @modal-action-close__hover__color;
                 }
             }
         }
+    }
+
+    .modal-inner-wrap {
+        align-items: center;
     }
 
     .modal-custom {
@@ -63,19 +100,41 @@
         }
     }
 
+    .modal-content{
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
     .modal-popup {
         .modal-title {
-            .lib-css(border-bottom, @modal-title__border);
-            .lib-css(font-weight, @font-weight__light);
-            .lib-css(padding-bottom, @indent__s);
+            background: transparent url('../images/envelope.svg') top center no-repeat;
+            -webkit-background-size: 60px;
+            background-size: 60px;
+            color: @theme__primary-color;
             font-size: @modal-popup-title__font-size;
             margin-bottom: 0;
             min-height: 1em;
+            padding: 70px 0 0;
             word-wrap: break-word;
+
+            /* .lib-button-with-icon(
+                @_button-color: @color-black,
+                @_button-padding: 81px 0 0,
+                @_button-margin: 20px 0 15px,
+                @_button-border: none,
+                @_button-background: none,
+                @_button-figure-size: 60px,
+                @_button-figure-radius: 5px,
+                @_button-figure-margin: 0 0 0 -30px,
+                @_button-figure-border: 1px solid @color-black,
+                @_button-icon-content: @icon-email,
+                @_button-icon-font-size: 30px,
+                @_button-icon-color-hover: @color-white
+            ); */
         }
 
         .action-close {
-            padding: @indent__base;
+            padding: @indent__s;
         }
     }
 
@@ -121,6 +180,7 @@
     .custom-slide {
         .lib-modal();
         .lib-modal-slide();
+
         &._show {
             -webkit-overflow-scrolling: touch;
             overflow-x: hidden;
@@ -132,6 +192,16 @@
             box-sizing: border-box;
             height: auto;
             min-height: 100%;
+        }
+    }
+
+    .modal-popup {
+        &.modal-slide {
+            &._inner-scroll {
+                .modal-inner-wrap {
+                    min-height: 100%;
+                }
+            }
         }
     }
 
@@ -156,21 +226,27 @@
             }
 
             &._inner-scroll {
+                left: 0;
+
                 &._show {
                     -webkit-overflow-scrolling: touch;
                     overflow-y: auto;
+                    z-index: 2000;
+                    .lib-vendor-prefix-display(flex);
                 }
 
                 .modal-inner-wrap {
                     height: auto;
-                    min-height: 100%;
+                    margin: 50px auto auto;
                 }
             }
         }
-
+        #opc-new-shipping-address {
+            display: block !important;
+        }
         .modal-title {
             .lib-css(font-size, @modal-popup-title-mobile__font-size);
-            .lib-css(font-weight, @font-weight__bold);
+            .lib-css(font-weight, @font-weight__semibold);
         }
     }
 }
@@ -183,8 +259,10 @@
     .modal-popup {
         &.modal-slide {
             .modal-footer {
-                .lib-css(border-top, @modal-title__border);
+                .lib-css(border-top, 0);
                 text-align: right;
+                padding: 0;
+                margin: 20px 0;
             }
         }
     }

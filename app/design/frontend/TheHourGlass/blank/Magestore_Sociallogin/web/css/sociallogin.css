@@ -1,0 +1,627 @@
+/*
+ * Copyright © 2016 Magestore. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ */
+
+.magestore-pop-tabs{
+    overflow: hidden;
+}
+
+.border-popup .login-text{
+    margin-bottom: 19px;
+}
+
+.magestore-pop-tabs .tab-link{
+    width: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: .16em;
+    line-height: 3rem;
+    text-transform: uppercase;
+    padding: 10px;
+    text-decoration: none;
+    color: #55565a;
+    background: #f6f9fc;
+    border-bottom: 1px solid #e8e9ec;
+}
+
+.magestore-pop-tabs .tab-link:first-child{
+    border-right: 1px solid #e8e9ec;
+}
+
+.magestore-pop-tabs .tab-link.active{
+    background: #fff;
+    border-bottom-color: #fff;
+}
+
+.magestore-popup_social {
+    width: 60%;
+    max-width: 443px;
+}
+
+.magestore-pop-content {
+    max-height: calc(78vh - 50px);
+    overflow-y: auto;
+}
+
+.clear{
+    width:100%;
+    height:0;
+    clear:both;
+    font-size:0;
+    line-height:0;
+}
+
+#sociallogin_button{
+    /*margin-top:10px;*/
+    width: 100%;
+}
+
+.columns #sociallogin_button {
+    padding: 0 0 13px;
+}
+
+#sociallogin_button > .sociallogin-other {
+    float: none;
+    margin: 0;
+}
+
+#sociallogin_button button span {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    float: none;
+    height:40px;
+    padding: 0;
+    font-weight: 500;
+    line-height: 40px;
+    box-sizing: border-box;
+    color: #e11383;
+}
+
+#sociallogin_button button span span {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 180px;
+    height: auto;
+    padding: 0 !important;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: left;
+}
+
+#sociallogin_button button > span:before {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'icons';
+    font-size: 2.4rem;
+    line-height: 1;
+    text-align: center;
+}
+
+#sociallogin_button #bt-logingo > span:before {
+    font-size: 3.2rem;
+}
+
+#sociallogin_button button span span:before {
+    display: none;
+}
+
+#sociallogin_button #bt-loginfb span, #bt-loginfb span{
+    /*background: url("sociallogin/fb.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginfb span span, #bt-loginfb span span{
+    /*background: none repeat scroll 0 0 #2d78bd;*/
+}
+#sociallogin_button #bt-loginamazon span, #bt-loginamazon span{
+    /*background: url("sociallogin/bt_amazon.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginamazon span span, #bt-loginamazon span span{
+    /*background: none repeat scroll 0 0 #fe9900;*/
+}
+#sociallogin_button #bt-loginins span, #bt-loginins span{
+    /*background: url("sociallogin/bt_intagram.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginins span span, #bt-loginins-popup span span{
+    /*background: none repeat scroll 0 0 #42729a;*/
+}
+#sociallogin_button #bt-logingo span, #bt-logingo span{
+    /*background: url("sociallogin/google.png") no-repeat;*/
+}
+#sociallogin_button #bt-logingo span span, #bt-logingo span span{
+    /*background: none repeat scroll 0 0 #dd4b39;*/
+}
+#magestore-popup  .input-box{width:100%;}
+#sociallogin_button #bt-loginvk span, #bt-loginvk span{
+    /*background: url("sociallogin/vk.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginvk span span, #bt-loginvk span span{
+    /*background: none repeat scroll 0 0 #44678d;*/
+}
+#sociallogin_button #bt-loginper span, #bt-loginper span{
+    /*background: url("sociallogin/persional.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginper span span, #bt-loginper span span{
+    /*background: none repeat scroll 0 0 #ffc823;*/
+}
+#bt-logintw span{
+    /*background: url("sociallogin/twit.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginse span, #bt-loginse span{
+    /*background: url("sociallogin/stack.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginse span span, #bt-loginse span  span{
+    /*background: none repeat scroll 0 0 #3170c3;*/
+}
+
+#sociallogin_button #bt-logintw span, #bt-loginaol span{
+    /*background: url("sociallogin/twit.png") no-repeat;*/
+}
+#sociallogin_button #bt-logintw span span, #bt-loginaol span span{
+    /*background: none repeat scroll 0 0 #28bceb;*/
+}
+#sociallogin_button #bt-loginwp span, #bt-loginwp span{
+    /*background: url("sociallogin/wpress.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginwp span span, #bt-loginwp span span{
+    /*background: none repeat scroll 0 0 #555555;*/
+}
+#sociallogin_button #bt-loginya span, #bt-loginya span{
+    /*background: url("sociallogin/yh.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginya span span, #bt-loginya span span{
+    /*background: none repeat scroll 0 0 #6f2b90;*/
+}
+/* by Hai Ta */
+#sociallogin_button #bt-loginaol span, #bt-loginaol span{
+    /*background: url("sociallogin/aol.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginaol span span, #bt-loginaol span span{
+    /*background: none repeat scroll 0 0 #ffc923;*/
+}
+#sociallogin_button #bt-loginwp span, #bt-loginwp span{
+    /*background: url("sociallogin/wpress.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginwp span span, #bt-loginwp-popup span span{
+    /*background: none repeat scroll 0 0 #555555;*/
+}
+#sociallogin_button #bt-logincal span, #bt-logincal span{
+    /*background: url("sociallogin/clavid.png") no-repeat;*/
+}
+#sociallogin_button #bt-logincal span span, #bt-logincal span span{
+    /*background: none repeat scroll 0 0 #12396b;*/
+}
+#sociallogin_button #bt-loginorg span, #bt-loginorg span{
+    /*background: url("sociallogin/orange.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginorg span span, #bt-loginorg span span{
+    /*background: none repeat scroll 0 0 #ff6501;*/
+}
+#sociallogin_button #bt-loginmp span, #bt-loginmp span{
+    /*background: url("sociallogin/mysp.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginmp span span, #bt-loginmp span span{
+    /*background: none repeat scroll 0 0 #ff6501;*/
+}
+#sociallogin_button #bt-loginlive span, #bt-loginlive span{
+    /*background: url("sociallogin/live.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginlive span span, #bt-loginlive span span{
+    /*background: none repeat scroll 0 0 #30a8e4;*/
+}
+#sociallogin_button #bt-loginfq span, #bt-loginfq span{
+    /*background: url("sociallogin/fq.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginfq span span, #bt-loginfq span span{
+    /*background: none repeat scroll 0 0 #099eba;*/
+}
+
+#sociallogin_button #bt-loginlinked span, #bt-loginlinked span{
+    /*background: url("sociallogin/linked.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginlinked span span, #bt-loginlinked span span{
+    /*background: none repeat scroll 0 0 #017fb2;*/
+}
+#sociallogin_button #bt-loginopen span, #bt-loginopen span{
+    /*background: url("sociallogin/myop.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginopen span span, #bt-loginopen span span{
+    /*background: none repeat scroll 0 0 #74bc52;*/
+}
+#sociallogin_button #bt-loginlj span, #bt-loginlj span{
+    /*background: url("sociallogin/liveJ.png") no-repeat;*/
+}
+#sociallogin_button #bt-loginlj span span, #bt-loginlj span span{
+    /*background: none repeat scroll 0 0 #143ea9;*/
+}
+
+#sociallogin-other-div{
+    display: block;
+    float: right;
+}
+#sociallogin-other-a{
+    width: 91px;
+    display: block;
+}
+.sociallogin-other{
+    display: block;
+    float: right;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.sociallogin-other-span{
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.sociallogin-other-span-img-popup{
+    float: right;
+    width: 26px;
+    height: 16px;
+    cursor: pointer;
+    background: url("sociallogin/add.png") no-repeat right;
+}
+
+.other-button{
+    /* margin: 7px 3px 5px 4px; */
+}
+.sociallogin-other-button{
+    width: auto;
+    max-width:375px;
+}
+button.bt-login-social{background:none;border:none;cursor: pointer; position: relative;}
+button.bt-login-social:hover{opacity: 0.9;}
+button.bt-login-social span{
+    height:40px;
+    line-height:40px;
+    color:#fff;
+    padding:0 0 0 35px;
+    float:left;
+}
+
+button.bt-login-social span span{
+    background-position:100% 0 !important;
+    /* padding-right:10px !important; */
+    padding-left:10px !important;
+    text-align: left;
+    color:#fff;
+    min-width: 110px;
+    font-size: 12px;
+    font-size-adjust: none;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: inherit;
+    text-transform:none;
+}
+button.bt-login-social span span {
+    min-width: 134px;
+}
+
+/* change poppup */
+#magestore-popup{
+    position: fixed;
+    z-index: 1000001;
+    border: 1px solid #e8e9ec;
+    max-width: 443px;
+    width: 80%;
+    display: none;
+}
+.border-popup {
+    background: #fff;
+    box-sizing: border-box;
+}
+#magestore-login-social{
+    box-sizing: border-box;
+    padding: 0 30px 30px;
+    border-top: 1px solid #e8e9ec;
+    background: #f1f1f1;
+}
+#magestore-login-social h3{
+    text-align: center;
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 24px 0 20px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+.magestore-login-social{
+    margin: 0;
+}
+.magestore-login-social .bt-login-social{
+    min-width: 0!important;
+}
+#magestore-popup .magestore-login-social li{
+    display: inline-block;
+    margin: 0;
+}
+.magestore-login-popup-button{
+    margin-top: 22px;
+}
+#magestore-popup .magestore-login-social li button{
+    background: transparent;
+    padding: 0 2px;
+}
+#magestore-popup .magestore-login-social li button span{
+    border: none;
+    color: #323f3a;
+    box-sizing: border-box;
+    width: 52px;
+    height: 52px;
+    line-height: 50px;
+    font-size: 2.2rem;
+    margin: 0 3px;
+    padding: 0;
+    position: relative;
+    font-weight: normal;
+}
+#magestore-popup .magestore-login-social li button:hover span{
+    color: #387c2b;
+}
+
+#magestore-popup .magestore-login-social li button span:before{
+    font-family: 'icons';
+    position: relative;
+    z-index: 1;
+}
+
+#magestore-popup .magestore-login-social li button span span{
+    display: none;
+}
+
+#bt-loginfb span:before{
+    content: '\e900';
+}
+
+#bt-logingo span:before{
+    content: '\f0d5';
+}
+
+#bt-loginins span:before{
+    content: '\e901';
+}
+
+#bt-logintw span:before{
+    content: '\f099';
+}
+
+#bg_fade {
+    background-color: #55565a;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 1000;
+    opacity: 0.94;
+}
+
+#sociallogin-close-popup,
+#sociallogin-close{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: -28px;
+    z-index: 9999;
+    height: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: .16em;
+    line-height: 2rem;
+    text-transform: uppercase;
+}
+
+#sociallogin-close-popup:hover,
+#sociallogin-close:hover{
+    text-decoration: underline;
+}
+
+#sociallogin-close-popup:hover:after,
+#sociallogin-close:hover:after{
+    text-decoration: none;
+}
+
+#sociallogin-close-popup:after,
+#sociallogin-close:after{
+    content: '\e90b';
+    display: inline-block;
+    vertical-align: middle;
+    height: 15px;
+    width: 15px;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    font-family: 'icons';
+    margin-left: 7px;
+    position: relative;
+    top: -2px;
+    font-size: 1.4rem;
+}
+
+#magestore-create-user,
+#magestore-login-form{
+    padding: 24px 29px;
+    box-sizing: border-box;
+}
+
+.login-label{
+    display: block;
+    padding: 5px 0 10px;
+    width: 100%;
+    font-weight: normal;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+}
+
+#magestore-popup .form-list label{
+    float: left;
+    text-align: left;
+    display: inline-block;
+    font-size: 12px;
+    -webkit-user-select: none;
+    white-space: nowrap;
+}
+
+#magestore-popup .form-list .sociallogin-field {clear: both;margin-bottom: 5px;}
+#magestore-popup .form-list .sociallogin-field.form-group{
+    width: 48%;
+}
+#magestore-popup .form-list .sociallogin-field.form-group.email{
+    width: 100%;
+}
+#magestore-popup .form-list .two-in-line{
+    display: flex;
+    justify-content: space-between;
+}
+.login-label em{
+    color: #e8342f;
+}
+.sociallogin-input-box{
+    margin-bottom: 7px;
+}
+#magestore-forgot-password,
+#magestore-sociallogin-create-new-customer{
+    float: left;
+}
+#magestore-forgot-back{
+    margin-top: 18px;
+    float: left;
+    margin-right: 5px;
+}
+#magestore-button-sociallogin-forgot{
+    margin: 8px 0;
+}
+.ajax-login-image{
+    background: url("sociallogin/opc-ajax-loader.gif") no-repeat scroll 0 0 transparent;
+    width: 16px;
+    height: 16px;
+    margin: 5px auto;
+    display: block;
+}
+.magestore-invalid-email{
+    margin-left: 0;
+    color: red;
+}
+
+#sociallogin-forgot{
+    margin-bottom : 18px;
+}
+.magestore-sociallogin-create-new-customer{
+    float: left;
+    clear: both;
+}
+.magestore-sociallogin-create-new-customer a{
+    margin-left: 10px;
+    font-weight: bold;
+}
+#magestore-create-back{
+    font-size: 10px;
+}
+.sociallogin-other-button-popup{
+    float: left;
+    padding: 0;
+    text-align: center;
+    margin-top: 15px;
+}
+#sociallogin_button ul.right{float:right;}
+#sociallogin_button ul.left{float:left;padding: 0;}
+
+.magestore-login-popup-button .pass-register {
+    float: right;
+    margin-top: 21px;
+    font-weight: 300;
+}
+.fields{
+    list-style:none;
+}
+a#magestore-create-back {
+    font-size: 16px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 6px;
+    display: none;
+}
+label.required:after, span.required:after {
+    content: '';
+    color: #e8342f;
+    font-weight: normal;
+    font-size: 12px;
+}
+.input-text.validation-failed {
+    border-color: #e8342f;
+}
+p.required, .validation-advice {
+    margin: 5px 0 0;
+    color: #e8342f;
+    font-size: 13px;
+}
+#magestore-create-user ul.form-list{
+    padding: 0;
+    margin: 0;
+}
+#magestore-create-user ul.form-list li:not(:last-child){margin: 0 0 10px;}
+#sociallogin_button ul li.button.right{
+    float:right;
+}
+button#magestore-button-sociallogin,
+button#magestore-button-sociallogin-create,
+button#magestore-button-sociallogin-forgot{
+    background-color: #387c2b;
+    border-color: #387c2b;
+    color: #fff;
+    margin: 8px 0;
+    padding: 11px 22px 9px;
+    font-size: 15px;
+    font-weight: 500;
+    height: 50px;
+    width: 192px;
+    text-transform: uppercase;
+}
+button#magestore-button-sociallogin:hover,
+button#magestore-button-sociallogin:active,
+button#magestore-button-sociallogin:focus,
+button#magestore-button-sociallogin-create:hover,
+button#magestore-button-sociallogin-create:active,
+button#magestore-button-sociallogin-create:focus,
+button#magestore-button-sociallogin-forgot:hover,
+button#magestore-button-sociallogin-forgot:active,
+button#magestore-button-sociallogin-forgot:focus {
+    background-color: transparent;
+    border-color: #387c2b;
+    color: #387c2b;
+}
+
+.magestore-create-popup-button{
+    margin-top: 20px;
+}
+.magestore-create-popup-button button#magestore-button-sociallogin-create{
+    width: 100%;
+}
+a#magestore-forgot-back {
+    margin: 0;
+}
+
+@media (min-width: 1025px) {
+    .columns #sociallogin_button {
+        padding: 0 0 48px;
+    }
+    #sociallogin_button button span span {
+        min-width: 1px;
+    }
+
+    #sociallogin_button button > span:before {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50px;
+    }
+}

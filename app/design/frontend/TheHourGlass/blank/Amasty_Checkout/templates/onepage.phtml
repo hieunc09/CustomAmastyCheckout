@@ -10,14 +10,20 @@
 
 /** @var \Amasty\Checkout\Helper\Onepage $helper */
 $helper = $block->getData('amcheckout_helper');
+$checkoutHelper  = $this->helper('TheHourGlass\Checkout\Helper\Data');
 ?>
+<div class="checkout-header">
+    <h1 class="title"><?= $block->escapeHtml($helper->getTitle()) ?></h1>
+    <?php $_loggedin = $this->helper('Magento\Checkout\Helper\Cart')->getCart()->getCustomerSession()->isLoggedIn(); ?>
+    <?php if( !$_loggedin ) : ?>
+        <div class="description">
+            <?= $helper->getDescription() ?>
+            <a href="javascript:socialLogin.open();"><?php echo __('sign in here')?></a>
+        </div>
+        <?php endif; ?>
+</div>
 
 <div id="checkout" data-bind="scope:'checkout'" class="checkout-container">
-    <div class="checkout-header">
-        <h1 class="title"><?= $block->escapeHtml($helper->getTitle()) ?></h1>
-        <div class="description"><?= $helper->getDescription() ?></div>
-    </div>
-
     <div id="checkout-loader" data-role="checkout-loader" class="loading-mask" data-mage-init='{"checkoutLoader": {}}'>
         <div class="loader">
             <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>"
@@ -121,7 +127,7 @@ $helper = $block->getData('amcheckout_helper');
     <?php if ($helper->isAddressSuggestionEnabled() && ($apiKey = $helper->getGoogleMapsKey())): ?>
     <script>
         window.amasty_checkout_regions = <?= $helper->getRegionsJson() ?>;
-        
+
         function amasty_checkout_gmaps_init() {
             require(['Amasty_Checkout/js/autocomplete'], function (autocomplete) {
                 autocomplete.isReady(true);

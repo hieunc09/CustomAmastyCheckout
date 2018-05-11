@@ -1,0 +1,75 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.footer-social-container {
+		text-align: center;
+
+		p {
+			margin: 21px auto;
+			max-width: 320px;
+		}
+
+		ul {
+			.lib-clearer();
+			.lib-list-reset-styles();
+		}
+
+		.social-link {
+			background-color: transparent;
+			border: 1px solid transparent;
+			color: @theme__primary-color;
+			font-size: 24px;
+			position: relative;
+			display: inline-block;
+			margin-left: 3px;
+			margin-right: 3px;
+			vertical-align: middle;
+			text-decoration: none;
+			line-height: 58px;
+			width: 58px;
+			height: 58px;
+
+			&.youtube {
+				font-size: 28px;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				border-color: @active__color;
+				color: @active__color;
+			}
+		}
+
+		.icon-facebook {
+			&:before {
+				content: '\f09a';
+				font-family: @font-family-fontawesome-name__base;
+			}
+		}
+
+		.icon-youtube {
+			&:before {
+				content: '\f16a';
+				font-family: @font-family-fontawesome-name__base;
+			}
+		}
+
+		.icon-instagram {
+			&:before {
+				content: '\f16d';
+				font-family: @font-family-fontawesome-name__base;
+			}
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}

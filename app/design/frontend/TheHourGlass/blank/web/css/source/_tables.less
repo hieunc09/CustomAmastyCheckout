@@ -1,5 +1,5 @@
 // /**
-//  * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+//  * Copyright © 2016 Magento. All rights reserved.
 //  * See COPYING.txt for license details.
 //  */
 
@@ -17,26 +17,65 @@
     }
 
     .table {
-        tfoot {
-            .lib-css(background, @sidebar__background-color);
-            > tr {
-                &:first-child {
-                    th,
+        &:not(.cart) {
+            &:not(.totals) {
+                .lib-table-bordered(
+                @_table_type: light,
+                @_table_border-width: @table__border-width
+                );
+
+                tfoot {
+                    > tr {
+
+                        &:first-child {
+                            th,
+                            td {
+                                // border-top: @table__border-width @table__border-style @table__border-color;
+                                // padding-top: @indent__base;
+                                padding-top: 15px;
+                            }
+                        }
+
+                        &:last-child {
+                            th,
+                            td {
+                                padding-bottom: 15px;
+                            }
+                        }
+                    }
+
+                    th {
+                        box-sizing: border-box;
+                        padding: 2px 10px 2px 20px;
+                        text-align: right;
+                        // width: 60%;
+                    }
+
                     td {
-                        border-top: @table__border-width @table__border-style @table__border-color;
-                        padding-top: @indent__base;
+                        box-sizing: border-box;
+                        padding: 2px 20px 2px 10px;
+                        text-align: right;
+                    }
+
+                    .mark {
+                        font-weight: @font-weight__regular;
+                        text-align: right;
+                    }
+
+                    .grand_total {
+                        .lib-font-size(15px);
+                        line-height: 1.467;
+
+                        th,
+                        td {
+                            padding-top: 8px;
+                        }
+
+                        strong {
+                            font-weight: @font-weight__semibold;
+                        }
                     }
                 }
-            }
-
-            th,
-            td {
-                border: 0;
-            }
-
-            .mark {
-                font-weight: @font-weight__regular;
-                text-align: right;
             }
         }
     }
@@ -48,80 +87,62 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
     .table-wrapper {
-        border-top: @table__border-width @table__border-style @table__border-color;
         .lib-table-overflow();
         position: relative; // To hide unnecessary horizontal scrollbar in Safari
 
-        .table:not(.totals):not(.cart):not(.table-comparison) {
-            .lib-table-responsive();
+        .table {
+            &:not(.cart) {
+                &:not(.totals) {
+                    &:not(.table-comparison) {
+                        .lib-table-responsive();
 
-            tbody {
-                > tr {
-                    > td:first-child {
-                        padding-top: 15px;
-                    }
+                        tbody > tr {
+                            > td:first-child {
+                                padding-top: @indent__base;
+                            }
 
-                    > td:last-child {
-                        border-bottom: @table__border-width @table__border-style @table__border-color;
-                        padding-bottom: 15px;
-                    }
+                            > td:last-child {
+                                padding-bottom: @indent__base;
+                            }
 
-                    > td.col.qty {
-                        text-align: left;
-                    }
-                }
-            }
+                            th,
+                            td {
+                                &:before {
+                                    color: @color-black-light;
+                                    letter-spacing: .16em;
+                                }
+                            }
+                        }
 
-            &.additional-attributes {
-                tbody {
-                    th {
-                        &:extend(.abs-no-display-s all);
-                    }
+                        &.additional-attributes {
+                            tbody {
+                                th {
+                                    &:extend(.abs-no-display-s all);
+                                }
 
-                    td {
-                        &:last-child {
-                            border: none;
-                            padding: 0 0 @indent__xs;
+                                td {
+                                    &:last-child {
+                                        border: none;
+                                        padding: 0 0 @indent__xs;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
 
-        .table:not(.totals):not(.table-comparison) {
-            tfoot {
-                display: block;
+        .table {
+            &:not(.totals) {
+                &:not(.table-comparison) {
+                    tfoot {
+                        display: table;
+                        width: 100%;
 
-                tr {
-                    display: block;
-
-                    &:extend(.abs-add-clearfix-mobile all);
-                    &:first-child {
-                        th,
-                        td {
-                            padding-top: @indent__base;
+                        th {
+                            // width: 60%;
                         }
-                    }
-                }
-
-                .mark {
-                    box-sizing: border-box;
-                    float: left;
-                    text-align: left;
-                    width: 70%;
-                }
-
-                .amount {
-                    box-sizing: border-box;
-                    float: left;
-                    text-align: right;
-                    width: 30%;
-                }
-
-                .grand.totals {
-                    .lib-font-size(16);
-                    .amount {
-                        padding-bottom: @indent__s;
                     }
                 }
             }
@@ -137,25 +158,11 @@
             padding-bottom: 0;
         }
 
-        tbody {
-            th,
-            td {
-                display: block;
-                padding-left: 0;
-                padding-right: 0;
-            }
+        tbody th,
+        tbody td {
+            display: block;
+            padding-left: 0;
+            padding-right: 0;
         }
-    }
-}
-
-//
-//  Desktop
-//  _____________________________________________
-
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
-    .table {
-        .lib-table-bordered(
-            @_table_type: horizontal_body
-        );
     }
 }

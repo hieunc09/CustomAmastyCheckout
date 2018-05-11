@@ -1,0 +1,251 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.footer-top{
+		background-color: #f1f1f1;
+		border-top: 1px solid @border-color__base;
+
+		&-wrapper{
+			max-width: 1718px;
+			margin: 0 auto;
+			.lib-clearer();
+		}
+	}
+
+	.footer-bottom{
+		background-color: @color-white;
+		border-top: 1px solid @border-color__base;
+		text-align: center;
+		.lib-font-size(13);
+
+		h6{
+			font-family: inherit;
+			.lib-font-size(14);
+			font-weight: 400;
+			margin-bottom: 17px;
+			letter-spacing: .16em;
+			text-transform: uppercase;
+		}
+
+		img{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0 5px;
+		}
+
+		.account & {
+			border-top: 1px solid @border-color__base;
+		}
+	}
+
+	.footer-social-container,
+	.footer-links-container,
+	.footer-subscription-container{
+		text-align: center;
+	}
+	.footer-info {
+		text-align: center;
+		box-shadow: 0 8px 8px -8px rgba(17, 17, 17, 0.14) inset;
+		line-height: 1.38;
+		background-color: #fff;
+		position: relative;
+		padding-top: 35px;
+		padding-bottom: 35px;
+		font-weight: @font-weight__light;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+
+		.action.primary.inverted {
+			min-width: 120px;
+			box-sizing: border-box;
+			text-transform: none;
+			padding: 12px;
+			font-family: @font-weight__medium;
+		}
+	}
+	.footer-info-holder {
+		box-sizing: border-box;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: @layout__max-width;
+		padding-left: @layout-indent__width;
+		padding-right: @layout-indent__width;
+		width: auto;
+	}
+}
+
+//
+//  Mobile
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.footer-social-container{
+		img, p{
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: @screen__l - 1) {
+	.footer-info {
+		br {
+			display: none;
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__l) {
+	.footer-top{
+		position: relative;
+	}
+
+	.footer-top-wrapper{
+		display: flex;
+		flex-direction: column;
+
+		.footer-social-container{
+			order: 2;
+		}
+
+		.footer-links-container{
+			order: 3;
+		}
+
+		.footer-subscription-container{
+			order: 1;
+		}
+	}
+
+	.footer-links-container{
+		li{
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.footer-social-container,
+	.footer-links-container,
+	.footer-subscription-container,
+	.footer-bottom{
+		padding: 25px 18px;
+	}
+
+	.footer-links-container,
+	.footer-bottom{
+		border-top: 1px solid @border-color__base;
+	}
+
+	.footer-subscription-container{
+		max-width: 480px;
+		margin: 0 auto;
+		padding-bottom: 5px;
+
+		.newsletter{
+			margin: 0;
+		}
+	}
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'tablet') and (@break = @screen__l) {
+	.footer-top-wrapper{
+		.footer-social-container{
+			order: 1;
+		}
+
+		.footer-links-container{
+			order: 3;
+		}
+
+		.footer-subscription-container{
+			order: 2;
+		}
+	}
+
+	.footer-social-container,
+	.footer-links-container,
+	.footer-subscription-container,
+	.footer-bottom{
+		padding: 40px 20px;
+	}
+
+	.footer-social-container,
+	.footer-subscription-container{
+		max-width: 700px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	.footer-subscription-container{
+		&:before{
+			content: '';
+			left: 0;
+			width: 100%;
+			border-top: 1px solid @border-color__base;
+			position: absolute;
+			margin-top: -40px;
+		}
+	}
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+	.footer-top-wrapper{
+		padding: 106px 0 72px;
+	}
+
+	.footer-bottom{
+		padding-top: 35px;
+		padding-bottom: 20px;
+		padding-bottom: 20px;
+		padding-bottom: 20px;
+	}
+
+	.footer-social-container{
+		width: 36%;
+		padding: 0 15px;
+	}
+
+	.footer-links-container{
+		width: 28%;
+		padding: 0 15px;
+	}
+
+	.footer-subscription-container{
+		width: 34%;
+		padding: 0 42px 0 81px;
+	}
+
+	.footer-social-container,
+	.footer-links-container,
+	.footer-subscription-container{
+		float: left;
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.footer-info {
+		padding-top: 55px;
+		padding-bottom: 55px;
+
+		p {
+			margin: 0 0 20px;
+		}
+	}
+}
+
+//Footer components
+@import 'footer/_footer-links.less';
+@import 'footer/_footer-social.less';
+@import 'footer/_footer-subscribe.less';
+@import 'footer/_footer-copyright.less';
