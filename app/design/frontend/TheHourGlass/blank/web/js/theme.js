@@ -4,14 +4,15 @@
  */
 define([
 	'jquery',
-	'jquery/ui',
 	'js/jcf',
+    'js/module/jcf-select',
+    'js/module/jcf-scrollable',
+    'js/module/jcf-radio',
+    'js/module/jcf-checkbox',
 	'domReady!'
-], function ($) {
+], function ($, jcf) {
 	'use strict';
 
 	// replace all form elements with modified default options
-    if ($('body').hasClass('checkout-cart-index')) {
-        jcf.replaceAll();
-	}
+    jcf.replaceAll();
 });

@@ -6,10 +6,12 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="reorder-billing-form" type="TheHourGlass\Checkout\Model\Checkout\LayoutProcessorPlugin" sortOrder="0" />
     </type>
     <type name="Amasty\Checkout\Helper\Item">
         <plugin name="TheHourGlass-CheckoutPlugin" type="TheHourGlass\Checkout\Plugin\CheckoutPlugin" sortOrder="10"/>
     </type>
+    -->
 </config>

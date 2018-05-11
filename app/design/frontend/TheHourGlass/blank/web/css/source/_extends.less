@@ -618,7 +618,7 @@
 & when (@media-common = true) {
     .abs-navigation-icon {
         .lib-icon-font(
-        @_icon-font-content: @icon-down,
+        @_icon-font-content: @icon-arrows-down,
         @_icon-font-size: 34px,
         @_icon-font-line-height: 1.2,
         @_icon-font-position: after,
@@ -768,7 +768,7 @@
         padding-right: 12px;
         position: relative;
         .lib-icon-font(
-        @icon-down,
+        @icon-arrows-down,
         @_icon-font-size: 26px,
         @_icon-font-line-height: 10px,
         @_icon-font-margin: 3px 0 0 0,
@@ -783,7 +783,7 @@
 
         &-expanded {
             .lib-icon-font-symbol(
-            @_icon-font-content: @icon-up,
+            @_icon-font-content: @icon-arrows-up,
             @_icon-font-position: after
             );
         }
@@ -791,7 +791,7 @@
 
     .abs-tax-total-expanded {
         .lib-icon-font-symbol(
-        @_icon-font-content: @icon-up,
+        @_icon-font-content: @icon-arrows-up,
         @_icon-font-position: after
         );
     }
@@ -947,7 +947,7 @@
         position: relative;
 
         .lib-icon-font(
-        @_icon-font-content: @icon-down,
+        @_icon-font-content: @icon-arrows-down,
         @_icon-font-size: 28px,
         @_icon-font-text-hide: false,
         @_icon-font-position: after,
@@ -962,7 +962,7 @@
 
         &.active {
             .lib-icon-font-symbol(
-                @_icon-font-content: @icon-up,
+                @_icon-font-content: @icon-arrows-up,
                 @_icon-font-position: after
             );
         }
@@ -1103,9 +1103,9 @@
                 }
             }
 
-            &.update {
+            &.@icon-arrows-up {
                 .lib-button-icon(
-                @icon-update,
+                @icon-@icon-arrows-up,
                 @_icon-font-size: 32px,
                 @_icon-font-line-height: 16px
                 );
@@ -1122,13 +1122,13 @@
         }
 
         .action {
-            &.update,
+            &.@icon-arrows-up,
             &.continue,
             &.clear {
                 margin: 0 auto @indent__s;
             }
 
-            &.update,
+            &.@icon-arrows-up,
             &.clear {
                 display: block;
             }
@@ -1319,7 +1319,7 @@
 
                 .amount .price {
                     .lib-icon-font(
-                    @icon-down,
+                    @icon-arrows-down,
                     @_icon-font-size: 30px,
                     @_icon-font-text-hide: true,
                     @_icon-font-position: after,
@@ -1343,7 +1343,7 @@
 
                     .amount .price {
                         .lib-icon-font-symbol(
-                        @_icon-font-content: @icon-up,
+                        @_icon-font-content: @icon-arrows-up,
                         @_icon-font-position: after
                         );
                     }
@@ -1377,7 +1377,7 @@
             cursor: pointer;
             font-weight: @font-weight__semibold;
             .lib-icon-font(
-            @_icon-font-content: @icon-down,
+            @_icon-font-content: @icon-arrows-down,
             @_icon-font-size: 30px,
             @_icon-font-position: after,
             @_icon-font-display: block
