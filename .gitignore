@@ -7,6 +7,7 @@ atlassian*
 /nbproject
 /sitemap
 /.idea
+/generated/*
 /.gitattributes
 /app/config_sandbox
 /app/etc/config.php
